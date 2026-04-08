@@ -273,31 +273,103 @@ table.s7 tr.iogo td{background:rgba(200,184,154,.2)}
   <div class="corner-tl dark"></div><div class="corner-br dark"></div>
   <div class="logo dark"><div class="l1">LAAND</div><div class="l2">VINTAGE</div></div>
   <div class="slide-num dark">03 / 09</div>
-  <div class="slide-head full"><h2 class="dark">ROI 真相</h2><p class="dark">系统显示 0 ≠ 没有成交，数据盲区导致严重低估</p></div>
+  <div class="slide-head full"><h2 class="dark">ROI 真相：为什么数字不等于真相</h2><p class="dark">统计周期消耗 189.8万 · 系统显示ROI = 0 · 真实估算ROI ~4.4</p></div>
   <div class="slide-body">
     <div class="s3-body">
+      <!-- 上行：指标表 + ROI估算 -->
       <div class="s3-row">
-        <div class="glass s3-card">
-          <div class="s3-card-title">系统「看不见」的成交</div>
-          <div class="s3-blind-item">私信后转入微信/电话成交 ❌</div>
-          <div class="s3-blind-item">超出7天归因窗口的延迟成交 ❌</div>
-          <div class="s3-blind-item">看内容后进店线下成交 ❌</div>
-          <div class="s3-blind-item">口碑传播带来的间接成交 ❌</div>
+        <!-- 左：核心指标表 -->
+        <div class="glass s3-card" style="flex:1.1;display:flex;flex-direction:column">
+          <div class="s3-card-title">后台呈现的关键数据</div>
+          <!-- 表格 -->
+          <div style="display:table;width:100%;border-collapse:collapse;font-family:var(--F);font-size:clamp(11px,1vw,13px)">
+            <div style="display:table-row;background:rgba(122,140,110,.18)">
+              <div style="display:table-cell;padding:6px 8px;font-weight:700;color:var(--charcoal);border-bottom:1px solid rgba(122,140,110,.2)">指标</div>
+              <div style="display:table-cell;padding:6px 8px;font-weight:700;color:var(--charcoal);border-bottom:1px solid rgba(122,140,110,.2);text-align:right">数值</div>
+              <div style="display:table-cell;padding:6px 8px;font-weight:700;color:var(--charcoal);border-bottom:1px solid rgba(122,140,110,.2)">说明</div>
+            </div>
+            <div style="display:table-row">
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05)">总消耗</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);text-align:right;font-weight:700;color:var(--olive)">189.8万</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);color:var(--muted)">2025.8–2026.1</div>
+            </div>
+            <div style="display:table-row;background:rgba(200,56,56,.05)">
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05)">实付总金额（系统回传）</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);text-align:right;font-weight:700;color:#c0392b">0 元</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);color:var(--muted)">回传未打通，系统不知道成交额</div>
+            </div>
+            <div style="display:table-row;background:rgba(200,56,56,.05)">
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05)">系统显示 ROI</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);text-align:right;font-weight:700;color:#c0392b">0</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);color:var(--muted)">假数字，不代表真实投放效率</div>
+            </div>
+            <div style="display:table-row">
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05)">可归因成交 UV</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);text-align:right;font-weight:700;color:var(--olive)">1,154 人</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);color:var(--muted)">系统能追踪到的成交用户</div>
+            </div>
+            <div style="display:table-row">
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05)">未归因成交 UV</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);text-align:right;font-weight:700;color:var(--charcoal)">1,327 人</div>
+              <div style="display:table-cell;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.05);color:var(--muted)">有成交但系统追踪不到</div>
+            </div>
+            <div style="display:table-row;background:rgba(122,140,110,.1)">
+              <div style="display:table-cell;padding:6px 8px;font-weight:700">可归因占比</div>
+              <div style="display:table-cell;padding:6px 8px;text-align:right;font-weight:700;color:#c0392b">46.5%</div>
+              <div style="display:table-cell;padding:6px 8px;color:var(--muted)">超过一半成交来自未归因</div>
+            </div>
+          </div>
+          <!-- 红色警示条 -->
+          <div style="margin-top:12px;display:flex;gap:10px">
+              <div style="flex:1;padding:10px 14px;background:rgba(122,140,110,.08);border-radius:8px;text-align:center">
+                <div style="font-family:var(--F);font-size:22px;font-weight:900;color:var(--olive)">2,481</div>
+                <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:3px">全口径成交人数</div>
+                <div style="font-family:var(--F);font-size:10px;color:var(--muted)">(1,154+1,327)</div>
+              </div>
+              <div style="flex:1;padding:10px 14px;background:rgba(122,140,110,.08);border-radius:8px;text-align:center">
+                <div style="font-family:var(--F);font-size:22px;font-weight:900;color:var(--olive)">~1万</div>
+                <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:3px">估算客单价</div>
+                <div style="font-family:var(--F);font-size:10px;color:var(--muted)">奢品私信成交均值</div>
+              </div>
+              <div style="flex:1;padding:10px 14px;background:rgba(122,140,110,.08);border-radius:8px;text-align:center">
+                <div style="font-family:var(--F);font-size:22px;font-weight:900;color:var(--olive)">~4.4</div>
+                <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:3px">修正后ROI</div>
+                <div style="font-family:var(--F);font-size:10px;color:var(--muted)">30%回传覆盖基准</div>
+              </div>
+            </div>
+            <div style="margin-top:auto;padding-top:10px"><div style="padding:8px 12px;background:rgba(192,57,43,.1);border-radius:6px;border-left:3px solid #c0392b;font-family:var(--F);font-size:clamp(11px,1vw,12.5px);color:var(--charcoal);line-height:1.6">
+            ❗ <b>ROI=0 不是因为没成交</b>，是因为「成交金额」从未回传给聚光系统。每一笔私信成交后，系统都不知道这笔订单的金额。
+          </div></div>
         </div>
-        <div class="glass s3-card">
-          <div class="s3-card-title">三种回传覆盖率下的ROI估算</div>
-          <div class="s3-roi-row lo"><div class="s3-roi-cov">50% 回传覆盖率</div><div style="font-family:var(--F);font-size:10px;color:var(--charcoal)">GMV 约4,962万</div><div class="s3-roi-val">ROI ~2.6</div></div>
-          <div class="s3-roi-row mid"><div class="s3-roi-cov" style="color:white">30% 覆盖率（保守基准）</div><div style="font-family:var(--F);font-size:10px;color:rgba(255,255,255,.8)">GMV 约8,270万</div><div class="s3-roi-val" style="color:white">ROI ~4.4</div></div>
-          <div class="s3-roi-row hi"><div class="s3-roi-cov">20% 回传覆盖率</div><div style="font-family:var(--F);font-size:10px;color:var(--charcoal)">GMV 约1.24亿</div><div class="s3-roi-val">ROI ~6.5</div></div>
+        <!-- 右：ROI估算 + 为什么未归因 -->
+        <div style="flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;min-width:0">
+          <div class="glass s3-card" style="flex:0 0 auto">
+            <div class="s3-card-title">回传覆盖率修正下的真实ROI</div>
+            <div class="s3-roi-row lo"><div class="s3-roi-cov">50% 覆盖率</div><div style="font-family:var(--F);font-size:11px;color:var(--charcoal)">GMV ≈ 4,962万</div><div class="s3-roi-val">ROI ~2.6</div></div>
+            <div class="s3-roi-row mid"><div class="s3-roi-cov" style="color:white">30% 覆盖率 · 保守基准</div><div style="font-family:var(--F);font-size:11px;color:rgba(255,255,255,.8)">GMV ≈ 8,270万</div><div class="s3-roi-val" style="color:white">ROI ~4.4</div></div>
+            <div class="s3-roi-row hi"><div class="s3-roi-cov">20% 覆盖率</div><div style="font-family:var(--F);font-size:11px;color:var(--charcoal)">GMV ≈ 1.24亿</div><div class="s3-roi-val">ROI ~6.5</div></div>
+          </div>
+          <div class="glass s3-card" style="flex:1">
+            <div class="s3-card-title">「未归因」成交的含义</div>
+            <div style="font-family:var(--F);font-size:clamp(11px,1vw,13px);color:var(--charcoal);line-height:1.75">
+              用户决策路径通常是：<br>
+              <b style="color:var(--olive)">看笔记 → 搜索 → 关注 → 几天后私信</b><br><br>
+              最初的广告触达可能发生在 <b>7–14天前</b>，超出归因窗口就变成「未归因」。
+            </div>
+            <div style="margin-top:auto;padding-top:10px"><div style="padding:8px 12px;background:rgba(122,140,110,.1);border-radius:6px;font-family:var(--F);font-size:clamp(11px,1vw,12.5px);color:var(--charcoal);line-height:1.6">
+              💡 <b>启示：</b>强化私信承接SOP<br>广告触达 → 48h主动私信 → 7天跟进报价 → 30天成交追踪<br>把未归因成交率从 <b style="color:#c0392b">53.5%</b> 压缩至 <b style="color:var(--olive)">30%</b> 以内
+            </div></div>
+          </div>
         </div>
       </div>
+      <!-- 底部P0行动 -->
       <div class="glass s3-action">
-        <div style="border-left:4px solid var(--accent);padding-left:14px;min-width:90px">
+        <div style="border-left:4px solid var(--accent);padding-left:14px;min-width:90px;flex-shrink:0">
           <div class="s3-action-tag">P0 行动</div>
           <div style="font-family:var(--F);font-size:clamp(12px,1.2vw,15px);font-weight:700;color:var(--charcoal);margin-top:4px">打通私信成交回传</div>
         </div>
-        <div class="s3-action-txt">聚光后台 → 工具 → 转化追踪 → 新建「私信成交」目标<br>打通后系统才能看见真实ROI，定向优化精准度大幅提升</div>
-        <div style="margin-left:auto;font-family:var(--F);font-size:clamp(36px,6vw,56px);font-weight:900;color:rgba(163,180,150,.5);line-height:1;text-align:right">~4.4<br><span style="font-size:.3em;font-weight:400;color:rgba(163,180,150,.4)">真实ROI</span></div>
+        <div class="s3-action-txt">聚光后台 → 工具 → 转化追踪 → 新建「私信成交」目标 → 配置成交金额回传<br>打通后系统才能看见真实ROI，定向优化精准度大幅提升，预计效果提升 <b style="color:var(--olive)">30%+</b></div>
+        <div style="margin-left:auto;font-family:var(--F);font-size:clamp(36px,6vw,52px);font-weight:900;color:rgba(163,180,150,.4);line-height:1;text-align:right;flex-shrink:0">~4.4<br><span style="font-size:.3em;font-weight:400;color:rgba(163,180,150,.35)">真实ROI</span></div>
       </div>
     </div>
   </div>
