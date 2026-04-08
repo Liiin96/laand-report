@@ -41,9 +41,9 @@
 .glass{background:rgba(255,255,255,.84);border:1.4px solid rgba(255,255,255,.65);box-shadow:0 5px 20px rgba(0,0,0,.1);border-radius:10px;overflow:hidden}
 
 /* ── header block (title+subtitle) ── */
-.slide-head{padding:8px 4% 6px 160px;flex-shrink:0}
-.slide-head.full{padding-left:160px}
-.slide-head h2{font-family:var(--F);font-size:clamp(20px,2.8vw,30px);font-weight:700;color:var(--charcoal);margin:0 0 6px}
+.slide-head{padding:4px 4% 4px 210px;flex-shrink:0}
+.slide-head.full{padding-left:210px}
+.slide-head h2{font-family:var(--F);font-size:clamp(18px,2.4vw,26px);font-weight:700;color:var(--charcoal);margin:0 0 6px}
 .slide-head p{font-family:var(--F);font-size:clamp(12px,1.1vw,14px);color:var(--olive);margin:0}
 .slide-head h2.dark{color:#fff}
 .slide-head p.dark{color:var(--oliveL)}
@@ -134,7 +134,7 @@
 /* ══ S6 SEARCH ══ */
 .s6-col{flex:1;display:flex;flex-direction:column;padding:12px 16px;min-height:0}
 .s6-stitle{font-family:var(--F);font-size:clamp(13px,1.35vw,16px);font-weight:700;color:var(--charcoal);margin-bottom:8px;flex-shrink:0}
-.s6-sub{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);margin-bottom:8px;flex-shrink:0}
+.s6-sub{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);margin-bottom:4px;flex-shrink:0}
 .s6-field{border-radius:6px;padding:8px 12px;margin-bottom:6px;flex-shrink:0}
 .s6-field.hi{background:rgba(163,180,150,.3)}
 .s6-field.key{background:rgba(122,140,110,.3)}
@@ -143,12 +143,12 @@
 .s6-field-stat{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--charcoal)}
 .s6-field-stat b{color:var(--olive)}
 .s6-divlbl{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);margin:10px 0 6px;flex-shrink:0}
-.s6-words{flex:1;display:flex;flex-direction:column;gap:6px;margin-top:4px}
-.s6-word-row{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;background:rgba(122,140,110,.15);border-radius:4px;flex:1}
+.s6-words{display:flex;flex-direction:column;gap:8px}
+.s6-word-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:rgba(122,140,110,.15);border-radius:4px;margin:0}
 .s6-word{font-family:var(--F);font-size:clamp(11px,1.05vw,12.5px);color:var(--charcoal)}
 .s6-rate{font-family:var(--F);font-size:clamp(12px,1.2vw,14px);font-weight:700;color:var(--olive)}
-.s6-accs{flex:1;display:flex;flex-direction:column;gap:6px}
-.s6-acc-row{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:6px;flex:1}
+.s6-accs{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:0}
+.s6-acc-row{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:6px}
 .s6-acc-row.hot{background:rgba(122,140,110,.25)}
 .s6-acc-name{font-family:var(--F);font-size:clamp(11px,1.05vw,12.5px);font-weight:700;color:var(--charcoal)}
 .s6-acc-name.hot{color:var(--oliveD)}
@@ -430,8 +430,13 @@ table.s7 tr.iogo td{background:rgba(200,184,154,.2)}
       <div class="s6-words">
         <div class="s6-word-row"><div class="s6-word">LV回收</div><div class="s6-rate">4.0%</div></div>
         <div class="s6-word-row"><div class="s6-word">香奈儿中古包</div><div class="s6-rate">2.25%</div></div>
-        <div class="s6-word-row"><div class="s6-word">LAAND VTG</div><div class="s6-rate">1.03%</div></div>
         <div class="s6-word-row"><div class="s6-word">1–2w包包</div><div class="s6-rate">1.23%</div></div>
+        <div class="s6-word-row"><div class="s6-word">LAAND VTG</div><div class="s6-rate">1.03%</div></div>
+        <div class="s6-word-row" style="background:rgba(200,184,154,.18)"><div class="s6-word" style="color:var(--olive);font-weight:700">全站发现流均值</div><div class="s6-rate" style="color:var(--muted)">0.02%</div></div>
+      </div>
+      <div style="margin-top:auto;padding-top:12px;display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid rgba(122,140,110,.15)">
+        <div style="font-family:var(--F);font-size:11px;color:var(--muted);line-height:1.8">搜索词成交率最高达<br><b style="color:var(--olive);font-size:1.15em">4.0%</b>，是全站均值的 <b style="color:var(--olive)">200倍</b><br>预算占比仅 <b style="color:var(--olive)">1%</b> — 严重低配</div>
+        <div style="font-family:var(--F);font-size:52px;font-weight:900;color:rgba(122,140,110,.09);line-height:1;flex-shrink:0;margin-left:12px">200×</div>
       </div>
     </div>
     <!-- 右 -->
