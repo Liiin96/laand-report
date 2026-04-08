@@ -41,7 +41,9 @@
 .glass{background:rgba(255,255,255,.84);border:1.4px solid rgba(255,255,255,.65);box-shadow:0 5px 20px rgba(0,0,0,.1);border-radius:10px;overflow:hidden}
 
 /* ── header block (title+subtitle) ── */
-.slide-head{padding:14px 4% 10px;flex-shrink:0}
+.slide-head{padding:14px 4% 10px 130px;flex-shrink:0}
+.slide-head.dark-bg{padding-left:130px}
+.slide-head.full{padding-left:4%}
 .slide-head h2{font-family:var(--F);font-size:clamp(16px,2.6vw,26px);font-weight:700;color:var(--charcoal);margin:0 0 6px}
 .slide-head p{font-family:var(--F);font-size:clamp(9px,1vw,12px);color:var(--olive);margin:0}
 .slide-head h2.dark{color:#fff}
@@ -64,7 +66,8 @@
 .s1-stat-lbl{font-family:var(--F);font-size:clamp(7px,.8vw,9px);color:var(--muted);margin-top:4px}
 
 /* ══ S2 CONCLUSION ══ */
-.s2-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:14px;flex:1;min-height:0}
+.s2-grid{display:flex;flex-direction:column;gap:14px;flex:1;min-height:0}
+.s2-row{display:flex;gap:14px;flex:1;min-height:0}
 .s2-card{padding:16px 18px}
 .s2-num{font-family:var(--F);font-size:clamp(18px,2.5vw,24px);font-weight:900;color:var(--olive)}
 .s2-bar{width:24px;height:3px;background:var(--accent);margin:8px 0}
@@ -249,16 +252,14 @@ table.s7 tr.iogo td{background:rgba(200,184,154,.2)}
   <div class="slide-head"><h2>五大核心结论</h2><p>本次复盘最重要的五件事</p></div>
   <div class="slide-body">
     <div class="s2-grid">
-      <div class="glass s2-card"><div class="s2-num">01</div><div class="s2-bar"></div><div class="s2-title">ROI 被系统严重低估</div><div class="s2-desc">回传未打通，系统显示ROI=0，真实ROI估算达 ~4.4，打通回传是P0行动</div></div>
-      <div class="glass s2-card"><div class="s2-num">02</div><div class="s2-bar"></div><div class="s2-title">成交高峰在发布3个月后</div><div class="s2-desc">86%成交来自3个月以上老笔记，停止用30天ROI评判投放效果</div></div>
-      <div class="glass s2-card"><div class="s2-num">03</div><div class="s2-bar"></div><div class="s2-title">BV内容严重低配</div><div class="s2-desc">受众品牌偏好BV排第1（TGI 8929），但内容占比仅6.4%，是最大内容错配</div></div>
-      <div class="glass s2-card"><div class="s2-num">04</div><div class="s2-bar"></div><div class="s2-title">搜索场域几乎空白</div><div class="s2-desc">回收词成交率高达4%，发现流仅0.02%，搜索预算不足1%但效率差200倍</div></div>
-      <div class="glass s2-card"><div class="s2-num">05</div><div class="s2-bar"></div><div class="s2-title">鸿大yoyo严重低配</div><div class="s2-desc">转化率0.30%是主号15倍，回收专向账号精准度最高，却几乎没有预算</div></div>
-      <div class="glass" style="display:flex;align-items:center;justify-content:center;border-radius:10px">
-        <div style="text-align:center">
-          <div style="font-family:var(--F);font-size:clamp(50px,9vw,72px);font-weight:900;color:var(--olive);line-height:1">5</div>
-          <div style="font-family:var(--F);font-size:clamp(9px,1vw,12px);color:var(--oliveD);margin-top:6px">核心机会点</div>
-        </div>
+      <div class="s2-row">
+        <div class="glass s2-card" style="flex:1"><div class="s2-num">01</div><div class="s2-bar"></div><div class="s2-title">ROI 被系统严重低估</div><div class="s2-desc">回传未打通，系统显示ROI=0，真实ROI估算达 ~4.4，打通回传是P0行动</div></div>
+        <div class="glass s2-card" style="flex:1"><div class="s2-num">02</div><div class="s2-bar"></div><div class="s2-title">成交高峰在发布3个月后</div><div class="s2-desc">86%成交来自3个月以上老笔记，停止用30天ROI评判投放效果</div></div>
+      </div>
+      <div class="s2-row">
+        <div class="glass s2-card" style="flex:1"><div class="s2-num">03</div><div class="s2-bar"></div><div class="s2-title">BV内容严重低配</div><div class="s2-desc">受众品牌偏好BV排第1（TGI 8929），但内容占比仅6.4%，是最大内容错配</div></div>
+        <div class="glass s2-card" style="flex:1"><div class="s2-num">04</div><div class="s2-bar"></div><div class="s2-title">搜索场域几乎空白</div><div class="s2-desc">回收词成交率高达4%，发现流仅0.02%，搜索预算不足1%但效率差200倍</div></div>
+        <div class="glass s2-card" style="flex:1"><div class="s2-num">05</div><div class="s2-bar"></div><div class="s2-title">鸿大yoyo严重低配</div><div class="s2-desc">转化率0.30%是主号15倍，回收专向账号精准度最高，却几乎没有预算</div></div>
       </div>
     </div>
   </div>
@@ -273,7 +274,7 @@ table.s7 tr.iogo td{background:rgba(200,184,154,.2)}
   <div class="corner-tl dark"></div><div class="corner-br dark"></div>
   <div class="logo dark"><div class="l1">LAAND</div><div class="l2">VINTAGE</div></div>
   <div class="slide-num dark">03 / 09</div>
-  <div class="slide-head"><h2 class="dark">ROI 真相</h2><p class="dark">系统显示 0 ≠ 没有成交，数据盲区导致严重低估</p></div>
+  <div class="slide-head full"><h2 class="dark">ROI 真相</h2><p class="dark">系统显示 0 ≠ 没有成交，数据盲区导致严重低估</p></div>
   <div class="slide-body">
     <div class="s3-body">
       <div class="s3-row">
@@ -412,7 +413,7 @@ table.s7 tr.iogo td{background:rgba(200,184,154,.2)}
   <div class="corner-tl dark"></div><div class="corner-br dark"></div>
   <div class="logo dark"><div class="l1">LAAND</div><div class="l2">VINTAGE</div></div>
   <div class="slide-num dark">06 / 09</div>
-  <div class="slide-head"><h2 class="dark">搜索场域 × 账号矩阵</h2><p class="dark">两大被忽视的增量机会</p></div>
+  <div class="slide-head full"><h2 class="dark">搜索场域 × 账号矩阵</h2><p class="dark">两大被忽视的增量机会</p></div>
   <div class="slide-body">
     <!-- 左 -->
     <div class="glass s6-col">
