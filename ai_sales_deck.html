@@ -15,155 +15,175 @@
   --red:#C0392B; --orange:#D35400; --green:#27AE60;
   --F:'Noto Serif SC',Georgia,serif;
 }
-.reveal,.reveal h1,.reveal h2,.reveal h3,.reveal p,.reveal li{font-family:var(--F);color:var(--charcoal);text-transform:none}
+.reveal,.reveal h1,.reveal h2,.reveal h3,.reveal p,.reveal li{font-family:var(--F);color:var(--charcoal);text-transform:none;letter-spacing:0}
 .reveal .slides section{height:100%;padding:0;box-sizing:border-box;text-align:left}
 
-/* shell */
+/* ── shell ── */
 .si{width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden;position:relative;box-sizing:border-box}
 .bg-light{background:linear-gradient(135deg,#F5F0E8 0%,#EDE6D6 100%)}
 .bg-dark{background:linear-gradient(135deg,#5C6B52 0%,#2C2C2C 100%)}
+.bg-mid{background:linear-gradient(135deg,#2C2C2C 0%,#3a4a35 100%)}
+
+/* chrome */
 .top-bar{height:5px;flex-shrink:0}
-.tb-olive{background:var(--olive)} .tb-accent{background:var(--accent)} .tb-red{background:var(--red)} .tb-dark{background:var(--oliveD)}
-.corner{position:absolute;width:24px;height:24px;background:var(--olive)}
-.corner-tl{top:0;left:0} .corner-br{bottom:0;right:0}
-.corner.lt{background:var(--oliveL)}
+.tb-o{background:var(--olive)} .tb-a{background:var(--accent)} .tb-r{background:var(--red)} .tb-d{background:var(--oliveD)}
+.corner{position:absolute;width:24px;height:24px}
+.c-tl{top:0;left:0;background:var(--olive)} .c-br{bottom:0;right:0;background:var(--olive)}
+.c-lt{background:var(--oliveL)!important}
 .logo{position:absolute;top:12px;left:36px;z-index:20;line-height:1}
 .logo .l1{font-family:var(--F);font-size:13px;font-weight:900;letter-spacing:5px;color:var(--charcoal)}
-.logo .l2{font-family:var(--F);font-size:6px;letter-spacing:9px;color:var(--olive);display:block;margin-top:2px}
+.logo .l2{font-family:var(--F);font-size:6px;letter-spacing:8px;color:var(--olive);display:block;margin-top:2px}
 .logo.lw .l1{color:#fff} .logo.lw .l2{color:var(--oliveL)}
 .snum{position:absolute;top:12px;right:36px;font-family:var(--F);font-size:10px;color:var(--muted);z-index:20}
 .snum.w{color:rgba(255,255,255,.4)}
-.sfoot{height:18px;font-family:var(--F);font-size:8px;color:var(--muted);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sfoot{height:18px;font-family:var(--F);font-size:8px;color:var(--muted);display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:1px}
 .sfoot.w{color:rgba(255,255,255,.3)}
 
 /* glass */
 .gl{background:rgba(255,255,255,.88);border:1.2px solid rgba(255,255,255,.7);box-shadow:0 4px 18px rgba(0,0,0,.09);border-radius:10px}
-.gld{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px}
+.gld{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px}
 
-/* ── S1 cover ── */
+/* ── COVER ── */
 .cov-wrap{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
 .cov-wm{position:absolute;font-size:clamp(70px,16vw,180px);font-weight:900;color:rgba(255,255,255,.05);letter-spacing:.35em;pointer-events:none;font-family:var(--F);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
 .cov-card{width:54%;padding:34px 42px;text-align:center;position:relative;z-index:2}
 .cov-brand{font-family:var(--F);font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:.45em;color:var(--charcoal)}
 .cov-sub{font-family:var(--F);font-size:clamp(10px,1.1vw,12px);letter-spacing:.45em;color:var(--olive);margin-top:5px}
 .cov-line{width:58%;height:1px;background:var(--accent);margin:14px auto}
-.cov-title{font-family:var(--F);font-size:clamp(14px,1.8vw,19px);font-weight:700;color:var(--charcoal)}
-.cov-period{font-family:var(--F);font-size:clamp(10px,1.1vw,13px);color:var(--olive);margin-top:7px}
+.cov-title{font-family:var(--F);font-size:clamp(14px,1.8vw,20px);font-weight:700;color:var(--charcoal);line-height:1.4}
+.cov-period{font-family:var(--F);font-size:clamp(10px,1.1vw,13px);color:var(--olive);margin-top:8px}
 .cov-stats{display:flex;justify-content:space-around;margin-top:20px;gap:8px}
 .csv{font-family:var(--F);font-size:clamp(14px,1.7vw,18px);font-weight:700;color:var(--olive)}
 .csl{font-family:var(--F);font-size:clamp(9px,.85vw,11px);color:var(--muted);margin-top:3px}
 
-/* ── S2 TOC (3 big skill blocks) ── */
+/* ── TOC 3 blocks ── */
 .toc3{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 3% 8px;min-height:0}
 .toc3-card{border-radius:12px;overflow:hidden;display:flex;flex-direction:column;border:1.5px solid var(--creamD)}
-.toc3-head{padding:14px 18px 10px;background:var(--olive);color:white}
-.toc3-head.h2{background:var(--charcoal)}
-.toc3-head.h3{background:var(--oliveD)}
+.toc3-head{padding:14px 18px 10px}
+.th-1{background:var(--olive)} .th-2{background:var(--charcoal)} .th-3{background:var(--oliveD)}
 .toc3-snum{font-family:var(--F);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.7);margin-bottom:4px}
 .toc3-title{font-family:var(--F);font-size:clamp(14px,1.5vw,18px);font-weight:900;color:white;line-height:1.2}
-.toc3-body{flex:1;background:rgba(255,255,255,.88);padding:12px 18px;display:flex;flex-direction:column;gap:8px}
-.toc3-sub-item{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-radius:6px;background:var(--cream);border-left:3px solid var(--oliveL)}
-.toc3-sub-item.red{border-left-color:var(--red)}
-.toc3-sub-item.acc{border-left-color:var(--accent)}
-.toc3-sub-num{font-family:var(--F);font-size:10px;font-weight:700;color:var(--muted);min-width:16px;margin-top:1px}
-.toc3-sub-title{font-family:var(--F);font-size:clamp(11px,1.05vw,13px);font-weight:700;color:var(--charcoal)}
-.toc3-sub-desc{font-family:var(--F);font-size:clamp(9px,.9vw,11px);color:var(--muted);margin-top:2px}
+.toc3-body{flex:1;background:rgba(255,255,255,.9);padding:12px 18px;display:flex;flex-direction:column;gap:8px}
+.toc3-item{display:flex;align-items:flex-start;gap:10px;padding:9px 11px;border-radius:7px;background:var(--cream)}
+.toc3-item.bc1{border-left:3px solid var(--olive)}
+.toc3-item.bc2{border-left:3px solid var(--red)}
+.toc3-item.bc3{border-left:3px solid var(--accent)}
+.ti-num{font-family:var(--F);font-size:11px;font-weight:700;color:var(--muted);min-width:16px;margin-top:1px}
+.ti-title{font-family:var(--F);font-size:clamp(11px,1.05vw,13px);font-weight:700;color:var(--charcoal)}
+.ti-desc{font-family:var(--F);font-size:clamp(9px,.9vw,11px);color:var(--muted);margin-top:2px;line-height:1.5}
 
-/* ── skill big page ── */
-.sk-wrap{flex:1;display:flex;gap:0;min-height:0;padding:0 3% 8px}
+/* ── slide head ── */
+.shd{padding:44px 3% 6px 36px;flex-shrink:0}
+.shd h2{font-family:var(--F);font-size:clamp(16px,1.9vw,22px);font-weight:700;color:var(--charcoal);margin:6px 0 4px}
+.shd h2.w{color:white}
+.shd p{font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:var(--olive);margin:0}
+.shd p.w{color:var(--oliveL)}
+.skill-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-family:var(--F);font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:5px}
+.sb-o{background:var(--olive);color:white} .sb-d{background:var(--charcoal);color:white}
+.sb-r{background:var(--red);color:white} .sb-a{background:var(--accent);color:var(--charcoal)}
 
-/* left panel: case */
-.sk-case{flex:1;display:flex;flex-direction:column;gap:8px;padding-right:10px;border-right:1.5px solid var(--creamD)}
-/* right panel: howto */
-.sk-howto{flex:1;display:flex;flex-direction:column;gap:8px;padding-left:10px}
+/* ── body ── */
+.body{flex:1;display:flex;gap:12px;padding:0 3% 8px;min-height:0}
+.col{display:flex;flex-direction:column;gap:10px}
+.col-1{flex:1}.col-11{flex:1.1}.col-12{flex:1.2}
 
-.sk-panel-head{display:flex;align-items:center;gap:8px;padding:6px 0;margin-bottom:2px;flex-shrink:0}
-.sk-panel-tag{font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 10px;border-radius:12px}
-.tag-case{background:var(--olive);color:white}
-.tag-howto{background:var(--charcoal);color:white}
-.sk-panel-title{font-family:var(--F);font-size:clamp(13px,1.35vw,16px);font-weight:700;color:var(--charcoal)}
-
-/* shared sub-components */
+/* shared */
+.gl-pad{padding:14px 16px}
 .F{font-family:var(--F)}
-.bar-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
-.bar-lbl{font-family:var(--F);font-size:clamp(9px,.88vw,11px);color:var(--charcoal);min-width:64px}
-.bar-bg{flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden}
+.t-olive{color:var(--olive)} .t-red{color:var(--red)} .t-green{color:var(--green)} .t-orange{color:var(--orange)} .t-muted{color:var(--muted)} .t-dark{color:var(--charcoal)} .t-white{color:white} .t-acc{color:var(--accent)}
+.bold{font-weight:700}
+.sec-title{font-family:var(--F);font-size:clamp(12px,1.2vw,14px);font-weight:700;color:var(--charcoal);margin-bottom:8px}
+.sec-title.w{color:white}
+.sec-title.o{color:var(--olive)}
+
+/* bar */
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.bar-lbl{font-family:var(--F);font-size:clamp(9px,.88vw,11.5px);min-width:68px}
+.bar-bg{flex:1;height:8px;background:var(--creamD);border-radius:4px;overflow:hidden}
 .bar-f{height:100%;border-radius:4px}
-.bar-v{font-family:var(--F);font-size:clamp(9px,.88vw,11px);font-weight:700;color:var(--olive);min-width:40px;text-align:right}
-.frow{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--creamD)}
-.fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.ftxt{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--charcoal);line-height:1.6}
-.hb{padding:9px 12px;border-radius:7px;margin-top:4px}
+.bar-v{font-family:var(--F);font-size:clamp(9px,.88vw,11px);font-weight:700;min-width:44px;text-align:right}
+.bar-hint{font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 6px 76px;line-height:1.4}
+
+/* highlight box */
+.hb{padding:10px 13px;border-radius:8px}
 .hb-o{background:rgba(122,140,110,.13);border-left:3px solid var(--olive)}
 .hb-r{background:rgba(192,57,43,.07);border-left:3px solid var(--red)}
 .hb-g{background:rgba(39,174,96,.09);border-left:3px solid var(--green)}
-.hb-lbl{font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:1px;color:var(--olive);margin-bottom:3px}
-.hb-lbl.r{color:var(--red)} .hb-lbl.g{color:var(--green)}
-.hb-txt{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--charcoal);line-height:1.6}
-.mc{padding:10px 12px;display:flex;flex-direction:column}
+.hb-or{background:rgba(211,84,0,.08);border-left:3px solid var(--orange)}
+.hb-lbl{font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.hb-lbl.o{color:var(--olive)} .hb-lbl.r{color:var(--red)} .hb-lbl.g{color:var(--green)} .hb-lbl.or{color:var(--orange)}
+.hb-txt{font-family:var(--F);font-size:clamp(10px,.95vw,12.5px);color:var(--charcoal);line-height:1.65}
+
+/* metric card */
+.mc{padding:11px 13px;display:flex;flex-direction:column}
 .mc-lbl{font-family:var(--F);font-size:clamp(9px,.85vw,11px);color:var(--muted);margin-bottom:2px}
-.mc-val{font-family:var(--F);font-size:clamp(18px,2.3vw,28px);font-weight:900;color:var(--olive);line-height:1}
+.mc-val{font-family:var(--F);font-size:clamp(20px,2.5vw,30px);font-weight:900;color:var(--olive);line-height:1}
 .mc-sub{font-family:var(--F);font-size:clamp(9px,.85vw,11px);color:var(--muted);margin-top:3px}
-.step-item{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:7px;background:rgba(122,140,110,.1);border:1px solid rgba(122,140,110,.2);margin-bottom:6px}
-.step-circle{width:26px;height:26px;border-radius:50%;background:var(--olive);color:white;font-family:var(--F);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.step-t{font-family:var(--F);font-size:clamp(11px,1.1vw,13px);font-weight:700;color:var(--charcoal);margin-bottom:3px}
-.step-s{font-family:var(--F);font-size:clamp(9px,.9vw,11px);color:var(--muted);line-height:1.6}
-.prompt-box{background:var(--charcoal);border-radius:8px;padding:11px 14px}
-.prompt-lbl{font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:2px;color:var(--accent);margin-bottom:6px}
-.prompt-txt{font-family:var(--F);font-size:clamp(9px,.9vw,11.5px);color:rgba(255,255,255,.85);line-height:1.8}
-.dt{width:100%;border-collapse:collapse;font-family:var(--F);font-size:clamp(9px,.9vw,11px)}
-.dt th{background:var(--oliveD);color:white;padding:5px 8px;font-weight:700;text-align:left}
-.dt td{padding:5px 8px;border-bottom:1px solid var(--creamD);color:var(--charcoal)}
+
+/* step */
+.step{display:flex;align-items:flex-start;gap:12px;padding:11px 13px;border-radius:8px;background:rgba(122,140,110,.1);border:1px solid rgba(122,140,110,.2);margin-bottom:6px}
+.step-n{width:28px;height:28px;border-radius:50%;background:var(--olive);color:white;font-family:var(--F);font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-t{font-family:var(--F);font-size:clamp(12px,1.15vw,14px);font-weight:700;color:var(--charcoal);margin-bottom:3px}
+.step-s{font-family:var(--F);font-size:clamp(10px,.93vw,12px);color:var(--muted);line-height:1.65}
+
+/* prompt */
+.prompt{background:var(--charcoal);border-radius:8px;padding:13px 15px}
+.prompt-lbl{font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:2px;color:var(--accent);margin-bottom:7px}
+.prompt-txt{font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:rgba(255,255,255,.85);line-height:1.85}
+
+/* scene */
+.scene{background:var(--cream);border-radius:8px;padding:10px 13px;margin-bottom:6px}
+.scene-lbl{font-family:var(--F);font-size:9px;font-weight:700;color:var(--olive);letter-spacing:1px;margin-bottom:3px}
+.scene-q{font-family:var(--F);font-size:clamp(10px,.93vw,12.5px);color:var(--muted);font-style:italic;margin-bottom:3px;line-height:1.5}
+.scene-a{font-family:var(--F);font-size:clamp(10px,.93vw,12.5px);color:var(--olive);font-weight:700}
+
+/* table */
+.dt{width:100%;border-collapse:collapse;font-family:var(--F);font-size:clamp(10px,.93vw,12px)}
+.dt th{background:var(--oliveD);color:white;padding:6px 10px;font-weight:700;text-align:left}
+.dt td{padding:6px 10px;border-bottom:1px solid var(--creamD);color:var(--charcoal)}
 .dt tr:nth-child(even) td{background:rgba(163,180,150,.1)}
 .dt td.g{color:var(--green);font-weight:700} .dt td.r{color:var(--red);font-weight:700} .dt td.o{color:var(--orange);font-weight:700}
-.sc-tag{display:inline-block;padding:2px 8px;border-radius:12px;font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:.5px}
-.sct-o{background:var(--olive);color:white} .sct-r{background:var(--red);color:white} .sct-g{background:var(--green);color:white}
-.sct-acc{background:var(--accent);color:var(--charcoal)} .sct-d{background:var(--charcoal);color:white}
 
-/* scene box */
-.scene{background:var(--cream);border-radius:7px;padding:9px 12px;margin-bottom:5px}
-.scene-lbl{font-family:var(--F);font-size:9px;font-weight:700;color:var(--olive);letter-spacing:1px;margin-bottom:3px}
-.scene-q{font-family:var(--F);font-size:clamp(10px,.92vw,12px);color:var(--muted);font-style:italic;margin-bottom:3px}
-.scene-a{font-family:var(--F);font-size:clamp(10px,.92vw,12px);color:var(--olive);font-weight:700}
+/* finding */
+.frow{display:flex;align-items:flex-start;gap:9px;padding:6px 0;border-bottom:1px solid var(--creamD)}
+.fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.ftxt{font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:var(--charcoal);line-height:1.65}
 
-/* ── Lesson ── */
-.lc{flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;padding:0 3% 8px}
-.lcard{flex:1;display:flex;align-items:center;gap:18px;padding:14px 20px;border-radius:10px;position:relative;overflow:hidden}
-.licon{font-size:clamp(24px,3vw,36px);flex-shrink:0}
-.ltitle{font-family:var(--F);font-size:clamp(13px,1.4vw,17px);font-weight:700;color:white;margin-bottom:5px}
-.lbody{font-family:var(--F);font-size:clamp(10px,1vw,12.5px);color:rgba(255,255,255,.8);line-height:1.75}
-.lbig{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--F);font-size:clamp(36px,5vw,52px);font-weight:900;color:rgba(255,255,255,.1);font-style:italic}
+/* tag */
+.tag{display:inline-block;padding:2px 9px;border-radius:12px;font-family:var(--F);font-size:9px;font-weight:700;letter-spacing:.5px}
+.tag-o{background:var(--olive);color:white} .tag-r{background:var(--red);color:white}
+.tag-g{background:var(--green);color:white} .tag-a{background:var(--accent);color:var(--charcoal)}
+.tag-d{background:var(--charcoal);color:white}
 
-/* ── ending ── */
-.end-wrap{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
-.end-wm{position:absolute;font-size:clamp(60px,13vw,150px);font-weight:900;color:rgba(255,255,255,.05);letter-spacing:.35em;pointer-events:none;font-family:var(--F);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
-.end-card{text-align:center;padding:34px 46px;position:relative;z-index:2}
-.end-title{font-family:var(--F);font-size:clamp(18px,2.5vw,28px);font-weight:900;color:white;line-height:1.3;margin-bottom:10px}
-.end-line{width:54px;height:2px;background:var(--accent);margin:0 auto 14px}
-.end-stats{display:flex;justify-content:center;gap:36px;margin-bottom:18px}
+/* lesson */
+.lc{flex:1;display:flex;flex-direction:column;gap:11px;min-height:0;padding:0 3% 8px}
+.lcard{flex:1;display:flex;align-items:center;gap:18px;padding:15px 22px;border-radius:10px;position:relative;overflow:hidden}
+.licon{font-size:clamp(26px,3.2vw,38px);flex-shrink:0}
+.ltitle{font-family:var(--F);font-size:clamp(14px,1.45vw,18px);font-weight:700;color:white;margin-bottom:5px}
+.lbody{font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:rgba(255,255,255,.82);line-height:1.75}
+.lbig{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--F);font-size:clamp(38px,5.5vw,56px);font-weight:900;color:rgba(255,255,255,.1);font-style:italic}
+
+/* ending */
+.ew{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+.ewm{position:absolute;font-size:clamp(60px,13vw,150px);font-weight:900;color:rgba(255,255,255,.05);letter-spacing:.35em;pointer-events:none;font-family:var(--F);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
+.ecard{text-align:center;padding:34px 48px;position:relative;z-index:2}
+.etitle{font-family:var(--F);font-size:clamp(18px,2.5vw,28px);font-weight:900;color:white;line-height:1.3;margin-bottom:10px}
+.eline{width:54px;height:2px;background:var(--accent);margin:0 auto 14px}
+.estats{display:flex;justify-content:center;gap:36px;margin-bottom:18px}
 .esv{font-family:var(--F);font-size:clamp(20px,2.6vw,26px);font-weight:900;color:var(--accent)}
 .esl{font-family:var(--F);font-size:clamp(9px,.9vw,11px);color:rgba(255,255,255,.55);margin-top:3px}
-.end-author{font-family:var(--F);font-size:12px;color:rgba(255,255,255,.45);letter-spacing:2px}
-
-/* slide header */
-.shd{padding:2px 3% 4px 36px;flex-shrink:0;padding-top:46px}
-.shd h2{font-family:var(--F);font-size:clamp(16px,1.9vw,22px);font-weight:700;color:var(--charcoal);margin:6px 0 4px}
-.shd h2.w{color:white} .shd p{font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:var(--olive);margin:0} .shd p.w{color:var(--oliveL)}
-
-/* divider in skill page */
-.sk-divider{width:1.5px;background:var(--creamD);align-self:stretch;flex-shrink:0;margin:0 2px}
 </style>
 </head>
 <body>
 <div class="reveal"><div class="slides">
 
-<!-- ══ S1 COVER ══ -->
+<!-- ══ 01 COVER ══ -->
 <section>
 <div class="si bg-dark">
-  <div class="top-bar tb-accent"></div>
-  <div class="corner corner-tl lt"></div><div class="corner corner-br lt"></div>
+  <div class="top-bar tb-a"></div>
+  <div class="corner c-tl c-lt"></div><div class="corner c-br c-lt"></div>
   <div class="logo lw"><div class="l1">AI SALES</div><div class="l2">WORKFLOW · 2026</div></div>
-  <div class="snum w">01 / 07</div>
+  <div class="snum w">01 / 10</div>
   <div class="cov-wrap">
     <div class="cov-wm">AI</div>
     <div class="cov-card gl">
@@ -184,399 +204,637 @@
 </div>
 </section>
 
-<!-- ══ S2 TOC — 3 Skill blocks ══ -->
+<!-- ══ 02 TOC ══ -->
 <section>
 <div class="si bg-light">
-  <div class="top-bar tb-olive"></div>
-  <div class="corner corner-tl"></div><div class="corner corner-br"></div>
+  <div class="top-bar tb-o"></div>
+  <div class="corner c-tl"></div><div class="corner c-br"></div>
   <div class="logo"><div class="l1">AI SALES</div><div class="l2">WORKFLOW · 2026</div></div>
-  <div class="snum">02 / 07</div>
+  <div class="snum">02 / 10</div>
   <div class="shd">
     <h2>报告结构</h2>
-    <p>三个 Skill · 覆盖客户从引入到成熟的完整旅程</p>
+    <p>三个 Skill · 覆盖客户从引入到成熟的完整旅程 · 每个 Skill 分「案例」+「使用说明」详解</p>
   </div>
   <div class="toc3">
-
-    <!-- Skill 1 -->
     <div class="toc3-card">
-      <div class="toc3-head">
-        <div class="toc3-snum">SKILL 1 · 报白话术知识库</div>
-        <div class="toc3-title">📋 话术知识库</div>
+      <div class="toc3-head th-1">
+        <div class="toc3-snum">SKILL 1 · Pg 03–04</div>
+        <div class="toc3-title">📋 报白话术知识库</div>
       </div>
       <div class="toc3-body">
-        <div class="toc3-sub-item">
-          <div class="toc3-sub-num">1</div>
-          <div>
-            <div class="toc3-sub-title">案例 · 实战效果</div>
-            <div class="toc3-sub-desc">44章话术库 · 报白卡点秒级应答 · 新人上手时间大幅缩短</div>
-          </div>
-        </div>
-        <div class="toc3-sub-item">
-          <div class="toc3-sub-num">2</div>
-          <div>
-            <div class="toc3-sub-title">使用说明 · 如何搭建</div>
-            <div class="toc3-sub-desc">三步搭建 · 企微提取 Prompt · 可跨组复用</div>
-          </div>
-        </div>
+        <div class="toc3-item bc1"><div class="ti-num">1</div><div><div class="ti-title">案例 · 实战效果</div><div class="ti-desc">44章话术库 · Before/After对比 · 三大高频场景演示</div></div></div>
+        <div class="toc3-item bc1"><div class="ti-num">2</div><div><div class="ti-title">使用说明 · 如何搭建</div><div class="ti-desc">三步搭建流程 · 企微提取Prompt · 跨组复用指南</div></div></div>
       </div>
     </div>
-
-    <!-- Skill 2 -->
     <div class="toc3-card">
-      <div class="toc3-head h2">
-        <div class="toc3-snum">SKILL 2 · 投放复盘诊断</div>
+      <div class="toc3-head th-2">
+        <div class="toc3-snum">SKILL 2 · Pg 05–06</div>
         <div class="toc3-title">🔍 投放复盘诊断</div>
       </div>
       <div class="toc3-body">
-        <div class="toc3-sub-item red">
-          <div class="toc3-sub-num">1</div>
-          <div>
-            <div class="toc3-sub-title">案例 · 真实账户诊断</div>
-            <div class="toc3-sub-desc">掉量根因定位 · P0/P1/P2 行动清单 · 场域效率对比</div>
-          </div>
-        </div>
-        <div class="toc3-sub-item red">
-          <div class="toc3-sub-num">2</div>
-          <div>
-            <div class="toc3-sub-title">使用说明 · 双模式</div>
-            <div class="toc3-sub-desc">掉量诊断 & 品牌复盘 · 所需报表 · 双版本报告输出</div>
-          </div>
-        </div>
+        <div class="toc3-item bc2"><div class="ti-num">1</div><div><div class="ti-title">案例 · 真实账户诊断</div><div class="ti-desc">场域效率对比 · 指标卡 · P0/P1/P2 结构化行动清单</div></div></div>
+        <div class="toc3-item bc2"><div class="ti-num">2</div><div><div class="ti-title">使用说明 · 双模式</div><div class="ti-desc">掉量诊断 & 品牌复盘 · 所需报表 · 双版本报告结构</div></div></div>
       </div>
     </div>
-
-    <!-- Skill 3 -->
     <div class="toc3-card">
-      <div class="toc3-head h3">
-        <div class="toc3-snum">SKILL 3 · 一方数据分析</div>
+      <div class="toc3-head th-3">
+        <div class="toc3-snum">SKILL 3 · Pg 07–08</div>
         <div class="toc3-title">📊 一方数据分析</div>
       </div>
       <div class="toc3-body">
-        <div class="toc3-sub-item acc">
-          <div class="toc3-sub-num">1</div>
-          <div>
-            <div class="toc3-sub-title">案例 · 客户深度复盘</div>
-            <div class="toc3-sub-desc">ROI真相修正 · 内容错配发现 · KOS账号效率挖掘</div>
-          </div>
-        </div>
-        <div class="toc3-sub-item acc">
-          <div class="toc3-sub-num">2</div>
-          <div>
-            <div class="toc3-sub-title">使用说明 · 如何生成</div>
-            <div class="toc3-sub-desc">两份材料 · 五大分析维度 · Prompt模板 · 分享方式</div>
-          </div>
-        </div>
+        <div class="toc3-item bc3"><div class="ti-num">1</div><div><div class="ti-title">案例 · 客户深度复盘</div><div class="ti-desc">ROI真相修正 · 品牌错配可视化 · KOS账号效率发现</div></div></div>
+        <div class="toc3-item bc3"><div class="ti-num">2</div><div><div class="ti-title">使用说明 · 如何生成</div><div class="ti-desc">两份材料 · 五大分析维度 · 生成Prompt · 分享方式</div></div></div>
       </div>
     </div>
-
   </div>
   <div class="sfoot">AI 赋能销售全流程 · 二奢行业实践 · 2026</div>
 </div>
 </section>
 
-<!-- ══ S3 SKILL 1 — 案例 + 使用说明 ══ -->
+<!-- ══ 03 SKILL1 CASE ══ -->
 <section>
 <div class="si bg-light">
-  <div class="top-bar tb-olive"></div>
-  <div class="corner corner-tl"></div><div class="corner corner-br"></div>
-  <div class="logo"><div class="l1">SKILL 01</div><div class="l2">报白话术知识库</div></div>
-  <div class="snum">03 / 07</div>
-  <div class="shd" style="display:flex;align-items:baseline;gap:16px;">
-    <div>
-      <h2>📋 报白话术知识库</h2>
-      <p>从"翻记录找话术"到"@AI 秒出答案" · 44章覆盖全场景 · 跨组可复用</p>
+  <div class="top-bar tb-o"></div>
+  <div class="corner c-tl"></div><div class="corner c-br"></div>
+  <div class="logo"><div class="l1">SKILL 01</div><div class="l2">案例 · CASE STUDY</div></div>
+  <div class="snum">03 / 10</div>
+  <div class="shd">
+    <div class="skill-badge sb-o">Skill 1 · 报白话术知识库</div>
+    <h2>从"翻记录找话术"到"@AI 秒出答案"</h2>
+    <p>44章话术库上线后 · 报白卡点响应 分钟级 → 秒级 · 新人上手时间大幅缩短</p>
+  </div>
+  <div class="body">
+    <!-- 左 -->
+    <div class="col col-1">
+      <!-- Before/After -->
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <div style="flex:1;background:rgba(192,57,43,.07);border-left:4px solid var(--red);border-radius:9px;padding:13px 15px;">
+          <div style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--red);letter-spacing:1.5px;margin-bottom:8px;">BEFORE · 过去的工作方式</div>
+          <div style="font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:var(--charcoal);line-height:1.75;">
+            📱 翻企微聊天记录找相似案例<br>
+            🙋 向前辈咨询，等待回复后再转达<br>
+            ⏳ 中间来回至少 2–3 轮沟通<br>
+            <b style="color:var(--red);">客户等待：分钟级甚至小时级</b>
+          </div>
+        </div>
+        <div style="flex:1;background:rgba(39,174,96,.09);border-left:4px solid var(--green);border-radius:9px;padding:13px 15px;">
+          <div style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--green);letter-spacing:1.5px;margin-bottom:8px;">AFTER · 现在的工作方式</div>
+          <div style="font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:var(--charcoal);line-height:1.75;">
+            🤖 描述客户卡点场景，@AI<br>
+            📋 AI 自动召唤对应话术 + 注意事项<br>
+            ✅ 合规指引直接进入客户服务流程<br>
+            <b style="color:var(--green);">客户等待：秒级响应</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- 三库结构 -->
+      <div class="gl gl-pad" style="flex-shrink:0;">
+        <div class="sec-title">📚 三大话术库 · 44章全场景覆盖</div>
+        <div class="bar-row"><div class="bar-lbl bold t-olive">📋 报白流程话术</div><div class="bar-bg"><div class="bar-f" style="width:85%;background:var(--olive);"></div></div><div class="bar-v t-olive">30章</div></div>
+        <div class="bar-hint">资质要求 · 驳回处理 · 边界说明 · 年框政策 · 审核升级流程</div>
+        <div class="bar-row"><div class="bar-lbl bold">📈 投放优化知识</div><div class="bar-bg"><div class="bar-f" style="width:27%;background:var(--oliveL);"></div></div><div class="bar-v">8章</div></div>
+        <div class="bar-hint">跑量诊断 · 深转策略 · 素材过审 · 直播留资</div>
+        <div class="bar-row"><div class="bar-lbl bold">🤝 客户跟进话术</div><div class="bar-bg"><div class="bar-f" style="width:20%;background:var(--accent);"></div></div><div class="bar-v">6章</div></div>
+        <div class="bar-hint">年框催缴 · 产品跟进 · 关系维护</div>
+      </div>
+
+      <div class="hb hb-o">
+        <div class="hb-lbl o">核心成果</div>
+        <div class="hb-txt">合规指引直接进入客户服务流程，新人上手时间大幅缩短；话术质量一致，客户信任感显著提升，报白成功率改善</div>
+      </div>
+    </div>
+
+    <!-- 右：高频场景 -->
+    <div class="col col-1">
+      <div class="gl gl-pad" style="flex:1;">
+        <div class="sec-title">💬 三类高频卡点 · 真实场景演示</div>
+
+        <div class="scene">
+          <div class="scene-lbl">场景 01 · 行业边界驳回</div>
+          <div class="scene-q">"客户是黄金回收行业，提交资质后一直显示「资质不符」，怎么处理？"</div>
+          <div class="scene-a">→ AI 即出：黄金回收报白边界说明 + 可替代资质方案 + 沟通话术</div>
+        </div>
+
+        <div class="scene">
+          <div class="scene-lbl">场景 02 · 线下门店无电商执照</div>
+          <div class="scene-q">"我们是线下实体店，没有电商营业执照，只有营业执照，能报白二奢回收吗？"</div>
+          <div class="scene-a">→ AI 即出：线下门店报白所需材料清单 + 替代证明文件说明</div>
+        </div>
+
+        <div class="scene">
+          <div class="scene-lbl">场景 03 · 审核超时催审</div>
+          <div class="scene-q">"资质提交超过 3 天了还没有通过，也没有驳回消息，怎么处理？"</div>
+          <div class="scene-a">→ AI 即出：催审工单提报流程 + 升级路径 + 安抚客户话术</div>
+        </div>
+
+        <div class="scene" style="margin-bottom:0;">
+          <div class="scene-lbl">场景 04 · 年框保证金催缴</div>
+          <div class="scene-q">"客户说要先看效果再决定是否补缴保证金，怎么推进？"</div>
+          <div class="scene-a">→ AI 即出：年框政策说明 + 价值锚定话术 + 逾期风险提示</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <div style="flex:1;text-align:center;padding:12px;background:rgba(122,140,110,.13);border-radius:9px;">
+          <div style="font-family:var(--F);font-size:clamp(22px,2.8vw,30px);font-weight:900;color:var(--olive);">秒级</div>
+          <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:3px;">话术响应速度</div>
+        </div>
+        <div style="flex:1;text-align:center;padding:12px;background:rgba(122,140,110,.13);border-radius:9px;">
+          <div style="font-family:var(--F);font-size:clamp(22px,2.8vw,30px);font-weight:900;color:var(--olive);">44章</div>
+          <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:3px;">覆盖全场景话术</div>
+        </div>
+        <div style="flex:1;text-align:center;padding:12px;background:rgba(122,140,110,.13);border-radius:9px;">
+          <div style="font-family:var(--F);font-size:clamp(22px,2.8vw,30px);font-weight:900;color:var(--olive);">~30%</div>
+          <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:3px;">新增业绩贡献</div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="sk-wrap">
-    <!-- 左：案例 -->
-    <div class="sk-case">
-      <div class="sk-panel-head">
-        <span class="sk-panel-tag tag-case">1 · 案例</span>
-        <span class="sk-panel-title">Before / After · 真实场景演示</span>
-      </div>
-
-      <!-- Before / After -->
-      <div style="display:flex;gap:8px;flex-shrink:0;">
-        <div style="flex:1;background:rgba(192,57,43,.07);border-left:3px solid var(--red);border-radius:7px;padding:10px 12px;">
-          <div style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--red);letter-spacing:1px;margin-bottom:5px;">BEFORE</div>
-          <div style="font-family:var(--F);font-size:clamp(10px,.93vw,12px);color:var(--charcoal);line-height:1.7;">翻企微聊天记录找话术<br>向前辈咨询后再回复<br><b style="color:var(--red);">响应：分钟~小时级</b></div>
-        </div>
-        <div style="flex:1;background:rgba(39,174,96,.09);border-left:3px solid var(--green);border-radius:7px;padding:10px 12px;">
-          <div style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:5px;">AFTER</div>
-          <div style="font-family:var(--F);font-size:clamp(10px,.93vw,12px);color:var(--charcoal);line-height:1.7;">描述场景 · @AI 召唤话术<br>合规指引直接进入服务流程<br><b style="color:var(--green);">响应：秒级</b></div>
-        </div>
-      </div>
-
-      <!-- 三库 -->
-      <div class="gl" style="padding:11px 14px;flex-shrink:0;">
-        <div style="font-family:var(--F);font-size:12px;font-weight:700;color:var(--charcoal);margin-bottom:8px;">📚 三大话术库 · 44章</div>
-        <div class="bar-row"><div class="bar-lbl">📋 报白流程</div><div class="bar-bg"><div class="bar-f" style="width:85%;background:var(--olive);"></div></div><div class="bar-v">30章</div></div>
-        <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 6px 72px;">资质要求 · 驳回处理 · 边界说明 · 年框政策</div>
-        <div class="bar-row"><div class="bar-lbl">📈 投放优化</div><div class="bar-bg"><div class="bar-f" style="width:27%;background:var(--oliveL);"></div></div><div class="bar-v">8章</div></div>
-        <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 6px 72px;">跑量诊断 · 深转策略 · 素材过审</div>
-        <div class="bar-row"><div class="bar-lbl">🤝 客户跟进</div><div class="bar-bg"><div class="bar-f" style="width:20%;background:var(--accent);"></div></div><div class="bar-v">6章</div></div>
-        <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 0 72px;">年框催缴 · 产品跟进 · 关系维护</div>
-      </div>
-
-      <!-- 场景 -->
-      <div class="gl" style="padding:11px 14px;flex:1;">
-        <div style="font-family:var(--F);font-size:12px;font-weight:700;color:var(--charcoal);margin-bottom:7px;">💬 高频场景演示</div>
-        <div class="scene"><div class="scene-lbl">场景 01 · 行业边界驳回</div><div class="scene-q">"客户是黄金回收，提交后一直显示资质不符…"</div><div class="scene-a">→ AI 即出：黄金回收报白边界说明 + 替代资质方案</div></div>
-        <div class="scene"><div class="scene-lbl">场景 02 · 线下门店无电商执照</div><div class="scene-q">"线下门店没有电商执照，能报白吗？"</div><div class="scene-a">→ AI 即出：线下门店报白条件 + 替代证明材料清单</div></div>
-        <div class="scene" style="margin-bottom:0;"><div class="scene-lbl">场景 03 · 审核超时催审</div><div class="scene-q">"提交超过3天没通过，怎么处理？"</div><div class="scene-a">→ AI 即出：催审流程 + 升级路径 + 安抚话术</div></div>
-      </div>
-    </div>
-
-    <div class="sk-divider"></div>
-
-    <!-- 右：使用说明 -->
-    <div class="sk-howto">
-      <div class="sk-panel-head">
-        <span class="sk-panel-tag tag-howto">2 · 使用说明</span>
-        <span class="sk-panel-title">三步搭建你的行业话术库</span>
-      </div>
-
-      <div class="step-item"><div class="step-circle">1</div><div><div class="step-t">整理话术素材</div><div class="step-s">从企微聊天记录复制真实对话 → 按「场景/回复/注意事项」分类<br>每章建议 3–8 条核心话术</div></div></div>
-      <div class="step-item"><div class="step-circle">2</div><div><div class="step-t">结构化分章</div><div class="step-s">每章对应一类场景 · 命名要具体<br>例：「驳回：资质照片不清晰」而非「资质问题」</div></div></div>
-      <div class="step-item"><div class="step-circle">3</div><div><div class="step-t">上传 RedDoc · 让 AI 记住</div><div class="step-s">上传至 RedDoc → 告诉 AI 文档链接<br>遇到卡点：描述场景 → @AI → 秒出话术</div></div></div>
-
-      <div class="prompt-box">
-        <div class="prompt-lbl">企微聊天记录快速提取 Prompt</div>
-        <div class="prompt-txt">以下是我从企微复制的聊天记录，请帮我：<br>
-1. 识别其中客户问的核心问题<br>
-2. 提炼我回复中的关键要点<br>
-3. 整理成「场景-回复-注意事项」标准格式<br><br>[粘贴聊天记录]</div>
-      </div>
-
-      <div class="gl" style="padding:11px 14px;flex-shrink:0;">
-        <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--charcoal);margin-bottom:6px;">✅ 全部标准化沉淀 · 跨组可复用</div>
-        <div style="font-family:var(--F);font-size:clamp(10px,.92vw,11.5px);color:var(--muted);line-height:1.7;">通用搭建指南已沉淀至 RedDoc，任意行业组替换话术素材即可复用<br>话术库建立后无需维护，AI 会持续召唤最新版本</div>
-      </div>
-    </div>
-  </div>
-  <div class="sfoot">Skill 1 · 报白话术知识库</div>
+  <div class="sfoot">Skill 1 · 报白话术知识库 · 案例</div>
 </div>
 </section>
 
-<!-- ══ S4 SKILL 2 — 案例 + 使用说明 ══ -->
+<!-- ══ 04 SKILL1 HOW-TO ══ -->
 <section>
 <div class="si bg-light">
-  <div class="top-bar tb-red"></div>
-  <div class="corner corner-tl"></div><div class="corner corner-br"></div>
-  <div class="logo"><div class="l1">SKILL 02</div><div class="l2">投放复盘诊断</div></div>
-  <div class="snum">04 / 07</div>
+  <div class="top-bar tb-o"></div>
+  <div class="corner c-tl"></div><div class="corner c-br"></div>
+  <div class="logo"><div class="l1">SKILL 01</div><div class="l2">使用说明 · HOW TO USE</div></div>
+  <div class="snum">04 / 10</div>
   <div class="shd">
-    <h2>🔍 投放复盘诊断</h2>
-    <p>某二奢品牌 · 掉量诊断实战 · 总消耗 157,883元 · AI 输出结构化诊断报告 + P0/P1 行动清单</p>
+    <div class="skill-badge sb-o">Skill 1 · 使用说明</div>
+    <h2>三步搭建你的行业话术库</h2>
+    <p>从企微聊天记录 → 结构化分章 → 喂给 AI · 全流程无需技术背景 · 其他行业组可直接复用</p>
   </div>
+  <div class="body">
+    <!-- 左 -->
+    <div class="col col-1">
+      <div class="sec-title">📋 搭建流程（三步完成）</div>
+      <div class="step"><div class="step-n">1</div><div><div class="step-t">整理话术素材</div><div class="step-s">从企微聊天记录里复制真实对话<br>按「场景 / 回复 / 注意事项」分类整理<br>每章建议收录 3–8 条核心话术，覆盖变体场景</div></div></div>
+      <div class="step"><div class="step-n">2</div><div><div class="step-t">结构化分章</div><div class="step-s">每章对应一类具体场景，命名越具体越好<br>✅ 「驳回：资质照片不清晰」<br>❌ 「资质驳回问题」（太模糊，AI 不好定位）</div></div></div>
+      <div class="step"><div class="step-n">3</div><div><div class="step-t">上传 RedDoc · 让 AI 记住</div><div class="step-s">把整理好的话术文档上传至 RedDoc<br>告诉 AI 文档链接即可完成"喂料"<br>遇到卡点：描述场景 → @AI → 秒出话术 + 注意事项</div></div></div>
 
-  <div class="sk-wrap">
-    <!-- 左：案例 -->
-    <div class="sk-case">
-      <div class="sk-panel-head">
-        <span class="sk-panel-tag tag-case">1 · 案例</span>
-        <span class="sk-panel-title">三场域效率对比 · AI 诊断输出</span>
+      <div class="gl gl-pad" style="margin-top:4px;">
+        <div class="sec-title">📊 三库覆盖速查</div>
+        <table class="dt">
+          <thead><tr><th>话术库</th><th>章节数</th><th>核心覆盖场景</th></tr></thead>
+          <tbody>
+            <tr><td>📋 报白流程话术</td><td style="text-align:center;font-weight:700;">30章</td><td>资质要求、驳回处理、边界说明、年框政策</td></tr>
+            <tr><td>📈 投放优化知识</td><td style="text-align:center;font-weight:700;">8章</td><td>跑量诊断、深转策略、素材过审、直播留资</td></tr>
+            <tr><td>🤝 客户跟进话术</td><td style="text-align:center;font-weight:700;">6章</td><td>年框催缴、产品跟进、关系维护</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 右 -->
+    <div class="col col-1">
+      <div class="prompt">
+        <div class="prompt-lbl">企微聊天记录快速提取 Prompt（Step 1 使用）</div>
+        <div class="prompt-txt">以下是我从企微复制的和客户的聊天记录，请帮我：<br><br>
+1. 识别出其中客户问的核心问题（可能有多个）<br>
+2. 提炼我回复中的关键要点和注意事项<br>
+3. 将每个问题整理成以下标准格式：<br><br>
+【场景】：客户遇到的具体情况<br>
+【回复要点】：我们的核心回答<br>
+【注意事项】：容易踩的坑 / 客户敏感点<br><br>
+[粘贴企微聊天记录]</div>
       </div>
 
-      <!-- 4指标卡 -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;flex-shrink:0;">
+      <div class="gl gl-pad" style="flex:1;margin-top:2px;">
+        <div class="sec-title">🔄 使用流程示意</div>
+        <div style="display:flex;align-items:center;gap:0;margin-bottom:14px;">
+          <div style="flex:1;text-align:center;padding:10px 6px;background:rgba(122,140,110,.1);border-radius:8px 0 0 8px;">
+            <div style="font-family:var(--F);font-size:1.5em;">📋</div>
+            <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);margin-top:3px;">整理话术</div>
+          </div>
+          <div style="color:var(--muted);font-size:1.2em;padding:0 4px;">→</div>
+          <div style="flex:1;text-align:center;padding:10px 6px;background:rgba(122,140,110,.1);">
+            <div style="font-family:var(--F);font-size:1.5em;">📁</div>
+            <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);margin-top:3px;">分章上传</div>
+          </div>
+          <div style="color:var(--muted);font-size:1.2em;padding:0 4px;">→</div>
+          <div style="flex:1;text-align:center;padding:10px 6px;background:rgba(122,140,110,.1);">
+            <div style="font-family:var(--F);font-size:1.5em;">🤖</div>
+            <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);margin-top:3px;">告知AI链接</div>
+          </div>
+          <div style="color:var(--muted);font-size:1.2em;padding:0 4px;">→</div>
+          <div style="flex:1;text-align:center;padding:10px 6px;background:rgba(39,174,96,.12);border-radius:0 8px 8px 0;">
+            <div style="font-family:var(--F);font-size:1.5em;">⚡</div>
+            <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--green);margin-top:3px;">秒级召唤</div>
+          </div>
+        </div>
+
+        <div class="hb hb-o">
+          <div class="hb-lbl o">跨组复用说明</div>
+          <div class="hb-txt">通用搭建指南已沉淀至 RedDoc，任意行业组替换对应话术素材即可复用<br>无需重复开发框架，开箱即用</div>
+        </div>
+
+        <div class="hb hb-g" style="margin-top:8px;">
+          <div class="hb-lbl g">维护成本</div>
+          <div class="hb-txt">话术库建立后无需频繁维护，新增场景追加进对应章节即可<br>AI 会持续召唤最新版本，无需重新"喂料"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot">Skill 1 · 报白话术知识库 · 使用说明</div>
+</div>
+</section>
+
+<!-- ══ 05 SKILL2 CASE ══ -->
+<section>
+<div class="si bg-light">
+  <div class="top-bar tb-r"></div>
+  <div class="corner c-tl"></div><div class="corner c-br"></div>
+  <div class="logo"><div class="l1">SKILL 02</div><div class="l2">案例 · CASE STUDY</div></div>
+  <div class="snum">05 / 10</div>
+  <div class="shd">
+    <div class="skill-badge sb-r">Skill 2 · 投放复盘诊断</div>
+    <h2>某二奢品牌 · 掉量诊断实战</h2>
+    <p>总消耗 157,883元 · 数据周期 4.1–4.19 · AI 自动输出结构化诊断 + P0/P1/P2 分级行动清单</p>
+  </div>
+  <div class="body">
+    <!-- 左 -->
+    <div class="col col-1">
+      <!-- 4指标 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex-shrink:0;">
         <div class="gl mc"><div class="mc-lbl">整体 CTR</div><div class="mc-val">10.27%</div><div class="mc-sub">✅ 高于赛道基准 8%</div></div>
         <div class="gl mc"><div class="mc-lbl">留资成本</div><div class="mc-val" style="color:var(--red);">291元</div><div class="mc-sub">🔴 基准 100-160元</div></div>
-        <div class="gl mc"><div class="mc-lbl">视频内流 CPC</div><div class="mc-val" style="color:var(--red);">62.87元</div><div class="mc-sub">🔴 搜索仅 0.72元</div></div>
-        <div class="gl mc"><div class="mc-lbl">搜索 CTR</div><div class="mc-val">15.64%</div><div class="mc-sub">✅ 最优场域</div></div>
+        <div class="gl mc"><div class="mc-lbl">视频内流 CPC</div><div class="mc-val" style="color:var(--red);">62.87元</div><div class="mc-sub">🔴 搜索场域仅 0.72元</div></div>
+        <div class="gl mc"><div class="mc-lbl">搜索场域 CTR</div><div class="mc-val">15.64%</div><div class="mc-sub">✅ 效率最优场域</div></div>
       </div>
-
       <!-- 场域对比 -->
-      <div class="gl" style="padding:11px 14px;flex:1;">
-        <div style="font-family:var(--F);font-size:12px;font-weight:700;color:var(--charcoal);margin-bottom:8px;">三大场域效率对比</div>
-        <div class="bar-row"><div class="bar-lbl" style="color:var(--green);font-weight:700;">✅ 搜索</div><div class="bar-bg"><div class="bar-f" style="width:28.5%;background:var(--green);"></div></div><div class="bar-v" style="color:var(--green);">28.5%消耗</div></div>
-        <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 7px 72px;">CTR 15.64% · CPC 0.72元 · 效率最优</div>
-        <div class="bar-row"><div class="bar-lbl" style="color:var(--orange);font-weight:700;">⚠️ 信息流</div><div class="bar-bg"><div class="bar-f" style="width:43.6%;background:var(--orange);"></div></div><div class="bar-v" style="color:var(--orange);">43.6%消耗</div></div>
-        <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 7px 72px;">CTR 5.89% · CPC 3.31元 · CTR偏低</div>
-        <div class="bar-row"><div class="bar-lbl" style="color:var(--red);font-weight:700;">🔴 视频内流</div><div class="bar-bg"><div class="bar-f" style="width:27.8%;background:var(--red);"></div></div><div class="bar-v" style="color:var(--red);">27.8%消耗</div></div>
-        <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin:-2px 0 0 72px;">CTR 1.09% · CPC 62.87元 · 最大出血点，每元产出差87倍</div>
+      <div class="gl gl-pad" style="flex:1;">
+        <div class="sec-title">三大场域效率对比</div>
+        <div class="bar-row"><div class="bar-lbl bold t-green">✅ 搜索场域</div><div class="bar-bg"><div class="bar-f" style="width:28.5%;background:var(--green);"></div></div><div class="bar-v t-green">28.5%消耗</div></div>
+        <div class="bar-hint">CTR 15.64% · CPC 0.72元 · CPM 113元 · 效率最优，严重低配</div>
+        <div class="bar-row"><div class="bar-lbl bold t-orange">⚠️ 信息流</div><div class="bar-bg"><div class="bar-f" style="width:43.6%;background:var(--orange);"></div></div><div class="bar-v t-orange">43.6%消耗</div></div>
+        <div class="bar-hint">CTR 5.89% · CPC 3.31元 · CTR偏低，素材需优化</div>
+        <div class="bar-row"><div class="bar-lbl bold t-red">🔴 视频内流</div><div class="bar-bg"><div class="bar-f" style="width:27.8%;background:var(--red);"></div></div><div class="bar-v t-red">27.8%消耗</div></div>
+        <div class="bar-hint">CTR 1.09% · CPC 62.87元 · CPM 688元 · 最大出血点，每元产出差 87倍</div>
 
-        <div class="hb hb-r" style="margin-top:10px;"><div class="hb-lbl r">P0 · 立即执行</div><div class="hb-txt">削减视频内流预算50%+，转移至搜索场域；Top1笔记（消耗9.5%，CTR仅1.70%）预算减半</div></div>
-        <div class="hb hb-g" style="margin-top:6px;"><div class="hb-lbl g">P2 · 机会加仓</div><div class="hb-txt">「二奢回收」「lv回收」蓝海词 CVR 高达20-33%，立即加仓；搜索占比目标 35%+</div></div>
+        <div class="hb hb-o" style="margin-top:10px;">
+          <div class="hb-lbl o">优化目标诊断</div>
+          <div class="hb-txt">私信留资量优化（87.4%消耗）留资成本 288元 · 开口→留资 CVR 76%<br>私信开口量优化（12.6%消耗）留资成本反而更高（306元），CVR仅56%<br>→ 主矛盾在私信话术承接，<b>而非广告出价</b></div>
+        </div>
       </div>
     </div>
 
-    <div class="sk-divider"></div>
+    <!-- 右 -->
+    <div class="col col-1">
+      <div class="gl gl-pad" style="flex:1;">
+        <div class="sec-title">AI 输出 · P0/P1/P2 行动清单</div>
 
-    <!-- 右：使用说明 -->
-    <div class="sk-howto">
-      <div class="sk-panel-head">
-        <span class="sk-panel-tag tag-howto">2 · 使用说明</span>
-        <span class="sk-panel-title">两种诊断模式 · 适配不同客户阶段</span>
-      </div>
-
-      <!-- 模式A -->
-      <div style="border-radius:8px;border:1.5px solid var(--red);overflow:hidden;flex-shrink:0;">
-        <div style="background:var(--red);padding:6px 12px;display:flex;align-items:center;gap:8px;">
-          <span class="sc-tag sct-d" style="font-size:8px;">模式 A</span>
-          <span style="font-family:var(--F);font-size:12px;font-weight:700;color:white;">掉量诊断 · 快速根因定位</span>
-        </div>
-        <div style="padding:10px 12px;background:rgba(192,57,43,.04);">
-          <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin-bottom:5px;">📂 所需：计划明细 · 笔记明细 · 营销诉求 · 链路总览（从聚光导出）</div>
-          <table class="dt">
-            <thead><tr><th>优先级</th><th>触发信号</th><th>建议动作</th></tr></thead>
-            <tbody>
-              <tr><td class="r">🔴 P0</td><td>实际成本 > 出价×120%</td><td>降出价或暂停</td></tr>
-              <tr><td class="r">🔴 P0</td><td>CTR < 赛道均值50%</td><td>素材问题 · 换创意</td></tr>
-              <tr><td class="o">🟡 P1</td><td>单笔消耗占比 > 40%</td><td>素材饱和 · 补新素材</td></tr>
-              <tr><td class="o">🟡 P1</td><td>开口→留资 CVR < 70%</td><td>优化私信话术承接</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- 模式B -->
-      <div style="border-radius:8px;border:1.5px solid var(--olive);overflow:hidden;flex:1;display:flex;flex-direction:column;">
-        <div style="background:var(--olive);padding:6px 12px;display:flex;align-items:center;gap:8px;">
-          <span class="sc-tag sct-d" style="font-size:8px;">模式 B</span>
-          <span style="font-family:var(--F);font-size:12px;font-weight:700;color:white;">品牌复盘 · 双版本报告输出</span>
-        </div>
-        <div style="flex:1;display:flex;gap:8px;padding:10px 12px;background:rgba(122,140,110,.05);">
-          <div style="flex:1;background:rgba(192,57,43,.06);border-radius:7px;padding:9px 11px;border-top:2px solid var(--red);">
-            <div style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--red);margin-bottom:5px;">内部全量版</div>
-            <div style="font-family:var(--F);font-size:clamp(9px,.88vw,11px);color:var(--charcoal);line-height:1.8;">✅ 年同比分析<br>✅ 场域/目标/账号矩阵<br>✅ P0/P1/P2 行动清单<br>✅ 竞品分析 · 品类机会</div>
+        <div class="hb hb-r" style="margin-bottom:8px;">
+          <div class="hb-lbl r">🔴 P0 · 本周立即执行</div>
+          <div class="hb-txt">
+            <div class="frow"><div class="fdot" style="background:var(--red);"></div><div class="ftxt">削减视频内流预算 50%+，全部转移至搜索场域（CTR 差15倍，每元产出差87倍）</div></div>
+            <div class="frow"><div class="fdot" style="background:var(--red);"></div><div class="ftxt">Top1笔记（消耗占9.5%，CTR仅1.70%）预算减半，准备替换素材</div></div>
+            <div class="frow" style="border:none;"><div class="fdot" style="background:var(--red);"></div><div class="ftxt">暂停高成本笔记（留资成本>1,957元的037b8b、549元的02dc9a）</div></div>
           </div>
-          <div style="flex:1;background:rgba(200,184,154,.12);border-radius:7px;padding:9px 11px;border-top:2px solid var(--accent);">
-            <div style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--oliveD);margin-bottom:5px;">对客简版</div>
-            <div style="font-family:var(--F);font-size:clamp(9px,.88vw,11px);color:var(--charcoal);line-height:1.8;">✅ 投放成果亮点<br>✅ 竞品格局（突出优势）<br>✅ 下阶段建议<br>❌ 不含出价/深转数据</div>
+        </div>
+
+        <div class="hb hb-or" style="margin-bottom:8px;">
+          <div class="hb-lbl or">🟡 P1 · 本月完成</div>
+          <div class="hb-txt">
+            <div class="frow"><div class="fdot" style="background:var(--orange);"></div><div class="ftxt">信息流素材优化：参考搜索高CTR素材话术("高价回收""秒到账")，目标 CTR ≥ 8%</div></div>
+            <div class="frow"><div class="fdot" style="background:var(--orange);"></div><div class="ftxt">优化私信承接话术：开口→留资 CVR 72% 是主矛盾，不要靠压广告出价解决</div></div>
+            <div class="frow" style="border:none;"><div class="fdot" style="background:var(--orange);"></div><div class="ftxt">激活沉默词：对「香奈儿包包」「LV包包」等大搜索量沉默词补充落地页</div></div>
+          </div>
+        </div>
+
+        <div class="hb hb-g">
+          <div class="hb-lbl g">🟢 P2 · 机会加仓</div>
+          <div class="hb-txt">
+            <div class="frow"><div class="fdot" style="background:var(--green);"></div><div class="ftxt">「二奢回收」「lv回收」蓝海词 CVR 高达20-33%，竞争极低，立即加仓</div></div>
+            <div class="frow" style="border:none;"><div class="fdot" style="background:var(--green);"></div><div class="ftxt">搜索场域占比目标从 28.5% 提升至 35%+；优质素材（018b0b CTR 8.54%）可加投</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="sfoot">Skill 2 · 投放复盘诊断</div>
+  <div class="sfoot">Skill 2 · 投放复盘诊断 · 案例</div>
 </div>
 </section>
 
-<!-- ══ S5 SKILL 3 — 案例 + 使用说明 ══ -->
+<!-- ══ 06 SKILL2 HOW-TO ══ -->
+<section>
+<div class="si bg-mid">
+  <div class="top-bar tb-a"></div>
+  <div class="corner c-tl c-lt"></div><div class="corner c-br c-lt"></div>
+  <div class="logo lw"><div class="l1">SKILL 02</div><div class="l2">使用说明 · HOW TO USE</div></div>
+  <div class="snum w">06 / 10</div>
+  <div class="shd">
+    <div class="skill-badge sb-a">Skill 2 · 使用说明</div>
+    <h2 class="w">两种诊断模式 · 适配不同客户阶段</h2>
+    <p class="w">掉量诊断（快速根因定位）· 品牌复盘（季度深度 · 双版本报告）</p>
+  </div>
+  <div class="body">
+    <!-- 左：模式A -->
+    <div class="col col-1">
+      <div style="border-radius:10px;border:1.5px solid var(--red);overflow:hidden;flex-shrink:0;">
+        <div style="background:var(--red);padding:9px 16px;display:flex;align-items:center;gap:10px;">
+          <span class="tag tag-d" style="font-size:8px;letter-spacing:1px;">模式 A</span>
+          <span style="font-family:var(--F);font-size:13px;font-weight:700;color:white;">掉量诊断 · 快速根因定位</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(192,57,43,.05);">
+          <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-bottom:8px;">📂 所需报表（从聚光→报表→自定义导出）</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <div style="padding:4px 10px;background:rgba(255,255,255,.7);border-radius:6px;font-family:var(--F);font-size:11px;color:var(--charcoal);">📊 计划明细</div>
+            <div style="padding:4px 10px;background:rgba(255,255,255,.7);border-radius:6px;font-family:var(--F);font-size:11px;color:var(--charcoal);">📝 笔记明细</div>
+            <div style="padding:4px 10px;background:rgba(255,255,255,.7);border-radius:6px;font-family:var(--F);font-size:11px;color:var(--charcoal);">🎯 营销诉求×推广目标</div>
+            <div style="padding:4px 10px;background:rgba(255,255,255,.7);border-radius:6px;font-family:var(--F);font-size:11px;color:var(--charcoal);">🔗 链路总览</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gld gl-pad" style="flex:1;">
+        <div class="sec-title w">归因框架 · 自动执行四维判断</div>
+        <table class="dt" style="font-size:11px;">
+          <thead><tr><th>优先级</th><th>触发信号</th><th>归因结论</th><th>建议动作</th></tr></thead>
+          <tbody style="color:rgba(255,255,255,.8);">
+            <tr><td style="color:var(--red);font-weight:700;">🔴 P0</td><td style="color:rgba(255,255,255,.8);">实际成本 > 出价×120%</td><td style="color:rgba(255,255,255,.8);">出价/素材问题</td><td style="color:rgba(255,255,255,.8);">降出价或暂停</td></tr>
+            <tr><td style="color:var(--red);font-weight:700;">🔴 P0</td><td style="color:rgba(255,255,255,.8);">CTR < 赛道均值50%</td><td style="color:rgba(255,255,255,.8);">素材吸引力不足</td><td style="color:rgba(255,255,255,.8);">换创意 · 优化首图</td></tr>
+            <tr><td style="color:var(--orange);font-weight:700;">🟡 P1</td><td style="color:rgba(255,255,255,.8);">单笔消耗占比 >40%</td><td style="color:rgba(255,255,255,.8);">素材饱和</td><td style="color:rgba(255,255,255,.8);">补充新素材</td></tr>
+            <tr><td style="color:var(--orange);font-weight:700;">🟡 P1</td><td style="color:rgba(255,255,255,.8);">开口→留资 CVR <70%</td><td style="color:rgba(255,255,255,.8);">话术承接问题</td><td style="color:rgba(255,255,255,.8);">优化私信话术</td></tr>
+            <tr><td style="color:var(--orange);font-weight:700;">🟡 P1</td><td style="color:rgba(255,255,255,.8);">预算使用率 <30%</td><td style="color:rgba(255,255,255,.8);">计划受限</td><td style="color:rgba(255,255,255,.8);">放宽定向/降出价</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px;font-family:var(--F);font-size:11px;color:var(--oliveL);">⚡ 二奢赛道基准：CTR ~8% · 留资 100-160元 · 开口成本 80-140元</div>
+      </div>
+    </div>
+
+    <!-- 右：模式B -->
+    <div class="col col-1">
+      <div style="border-radius:10px;border:1.5px solid var(--oliveL);overflow:hidden;flex:1;display:flex;flex-direction:column;">
+        <div style="background:var(--olive);padding:9px 16px;display:flex;align-items:center;gap:10px;">
+          <span class="tag tag-d" style="font-size:8px;letter-spacing:1px;">模式 B</span>
+          <span style="font-family:var(--F);font-size:13px;font-weight:700;color:white;">品牌复盘 · 双版本报告输出</span>
+        </div>
+        <div style="flex:1;display:flex;gap:10px;padding:12px 16px;background:rgba(255,255,255,.05);">
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--F);font-size:11px;font-weight:700;color:white;padding:6px 10px;background:rgba(192,57,43,.3);border-radius:6px;">内部全量版</div>
+            <div style="flex:1;font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:rgba(255,255,255,.85);line-height:2;padding:0 4px;">
+              ✅ 年同比分析<br>
+              ✅ 场域 / 优化目标结构分析<br>
+              ✅ 账号矩阵效率<br>
+              ✅ 出价达成情况<br>
+              ✅ P0/P1/P2 完整行动清单<br>
+              ✅ 竞品分析<br>
+              ✅ 品类机会判断
+            </div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--charcoal);padding:6px 10px;background:var(--accent);border-radius:6px;">对客简版</div>
+            <div style="flex:1;font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:rgba(255,255,255,.85);line-height:2;padding:0 4px;">
+              ✅ 投放成果亮点<br>
+              ✅ 竞品格局（突出我方优势）<br>
+              ✅ 品类新机会<br>
+              ✅ 下阶段建议<br>
+              ❌ 不含出价详情 / 深转数据<br>
+              ❌ 不含内部掉量归因措辞<br>
+              ❌ 不含消耗缩减说明
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gld gl-pad" style="flex-shrink:0;">
+        <div class="sec-title w">对客版写作四原则</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;gap:10px;align-items:center;"><div style="width:24px;height:24px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;font-family:var(--F);font-size:11px;font-weight:700;color:white;flex-shrink:0;">1</div><div style="font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:rgba(255,255,255,.85);">先讲成绩，再说优化方向</div></div>
+          <div style="display:flex;gap:10px;align-items:center;"><div style="width:24px;height:24px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;font-family:var(--F);font-size:11px;font-weight:700;color:white;flex-shrink:0;">2</div><div style="font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:rgba(255,255,255,.85);">成本上涨 → 归因为"行业竞争加剧"而非投放问题</div></div>
+          <div style="display:flex;gap:10px;align-items:center;"><div style="width:24px;height:24px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;font-family:var(--F);font-size:11px;font-weight:700;color:white;flex-shrink:0;">3</div><div style="font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:rgba(255,255,255,.85);">竞品对比时突出"我方优势"，不主动暴露劣势</div></div>
+          <div style="display:flex;gap:10px;align-items:center;"><div style="width:24px;height:24px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;font-family:var(--F);font-size:11px;font-weight:700;color:white;flex-shrink:0;">4</div><div style="font-family:var(--F);font-size:clamp(11px,1.05vw,13px);color:rgba(255,255,255,.85);">消耗缩减不主动提及，聚焦效率指标</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot w">Skill 2 · 投放复盘诊断 · 使用说明</div>
+</div>
+</section>
+
+<!-- ══ 07 SKILL3 CASE ══ -->
 <section>
 <div class="si bg-light">
-  <div class="top-bar tb-accent"></div>
-  <div class="corner corner-tl"></div><div class="corner corner-br"></div>
-  <div class="logo"><div class="l1">SKILL 03</div><div class="l2">一方数据分析</div></div>
-  <div class="snum">05 / 07</div>
+  <div class="top-bar tb-a"></div>
+  <div class="corner c-tl"></div><div class="corner c-br"></div>
+  <div class="logo"><div class="l1">SKILL 03</div><div class="l2">案例 · CASE STUDY</div></div>
+  <div class="snum">07 / 10</div>
   <div class="shd">
-    <h2>📊 一方数据分析</h2>
-    <p>某奢侈品回收品牌 · 总消耗 189.8万 · 系统 ROI=0 · 真实毛利 ROI ~4.4 · 发现人群与内容隐藏错配</p>
+    <div class="skill-badge sb-a">Skill 3 · 一方数据分析</div>
+    <h2>某奢侈品回收品牌 · 一方数据深度复盘</h2>
+    <p>总消耗 189.8万 · 触达 573万+ UV · 系统 ROI=0 · 真实毛利 ROI ~4.4 · 发现人群与内容的隐藏错配</p>
   </div>
-
-  <div class="sk-wrap">
-    <!-- 左：案例 -->
-    <div class="sk-case">
-      <div class="sk-panel-head">
-        <span class="sk-panel-tag tag-case">1 · 案例</span>
-        <span class="sk-panel-title">ROI 真相 · 内容错配 · KOS 效率</span>
-      </div>
-
+  <div class="body">
+    <!-- 左 -->
+    <div class="col col-1">
       <!-- ROI -->
-      <div class="gl" style="padding:11px 14px;flex-shrink:0;">
-        <div style="font-family:var(--F);font-size:12px;font-weight:700;color:var(--charcoal);margin-bottom:8px;">📊 ROI 真相 · 系统 0 ≠ 没有成交</div>
-        <div style="display:flex;gap:10px;align-items:stretch;margin-bottom:8px;">
-          <div style="flex:1;text-align:center;padding:9px;background:rgba(192,57,43,.07);border-radius:7px;">
-            <div style="font-family:var(--F);font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--red);line-height:1;">0</div>
-            <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin-top:3px;">系统显示ROI</div>
-            <div style="font-family:var(--F);font-size:9px;color:var(--red);">回传未打通</div>
+      <div class="gl gl-pad" style="flex-shrink:0;">
+        <div class="sec-title">📊 ROI 真相 · 系统 0 ≠ 没有成交</div>
+        <div style="display:flex;gap:10px;align-items:stretch;margin-bottom:10px;">
+          <div style="flex:1;text-align:center;padding:12px;background:rgba(192,57,43,.07);border-radius:9px;">
+            <div style="font-family:var(--F);font-size:clamp(28px,3.8vw,42px);font-weight:900;color:var(--red);line-height:1;">0</div>
+            <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:4px;">系统显示ROI</div>
+            <div style="font-family:var(--F);font-size:10px;color:var(--red);">回传未打通</div>
           </div>
-          <div style="display:flex;align-items:center;color:var(--muted);font-size:1.2em;">→</div>
-          <div style="flex:1;text-align:center;padding:9px;background:rgba(122,140,110,.12);border-radius:7px;">
-            <div style="font-family:var(--F);font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--olive);line-height:1;">~4.4</div>
-            <div style="font-family:var(--F);font-size:10px;color:var(--muted);margin-top:3px;">真实毛利ROI</div>
-            <div style="font-family:var(--F);font-size:9px;color:var(--olive);">回传覆盖率修正后</div>
+          <div style="display:flex;align-items:center;color:var(--muted);font-size:1.4em;flex-shrink:0;">→</div>
+          <div style="flex:1;text-align:center;padding:12px;background:rgba(122,140,110,.12);border-radius:9px;">
+            <div style="font-family:var(--F);font-size:clamp(28px,3.8vw,42px);font-weight:900;color:var(--olive);line-height:1;">~4.4</div>
+            <div style="font-family:var(--F);font-size:11px;color:var(--muted);margin-top:4px;">真实毛利ROI估算</div>
+            <div style="font-family:var(--F);font-size:10px;color:var(--olive);">回传覆盖率修正后</div>
           </div>
         </div>
-        <div style="font-family:var(--F);font-size:10.5px;color:var(--muted);line-height:1.6;">可归因1,154人 + 未归因1,327人 = <b style="color:var(--olive);">全口径2,481人</b>｜毛利口径：单笔1,000元 × 2,481 ÷ 189.8万 = <b style="color:var(--olive);">ROI 1.31（基准）</b></div>
+        <div style="font-family:var(--F);font-size:11px;color:var(--muted);line-height:1.65;">
+          可归因成交 1,154人 + 未归因 1,327人 = <b style="color:var(--olive);">全口径 2,481人</b><br>
+          毛利口径：客单价1万 × 毛利10% = 单笔1,000元<br>
+          2,481人 × 1,000元 ÷ 189.8万消耗 = <b style="color:var(--olive);">基准 ROI 1.31 → 覆盖率修正后 ROI 4.36</b>
+        </div>
       </div>
 
-      <!-- BV错配 -->
-      <div class="gl" style="padding:11px 14px;flex:1;">
-        <div style="font-family:var(--F);font-size:12px;font-weight:700;color:var(--charcoal);margin-bottom:8px;">品牌偏好 × 内容消耗 · 错配分析</div>
-        <div style="margin-bottom:8px;">
-          <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-family:var(--F);font-size:12px;font-weight:700;">BV</span><span class="sc-tag sct-r">严重低配</span></div>
-          <div style="display:flex;gap:4px;align-items:center;margin-bottom:2px;"><span style="font-family:var(--F);font-size:9px;color:var(--muted);width:48px;">受众偏好</span><div style="flex:1;height:6px;background:var(--creamD);border-radius:3px;overflow:hidden;"><div style="height:100%;width:100%;background:var(--olive);"></div></div><span style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--olive);width:52px;text-align:right;">TGI 8929</span></div>
-          <div style="display:flex;gap:4px;align-items:center;"><span style="font-family:var(--F);font-size:9px;color:var(--muted);width:48px;">内容占比</span><div style="flex:1;height:6px;background:var(--creamD);border-radius:3px;overflow:hidden;"><div style="height:100%;width:6.4%;background:var(--red);"></div></div><span style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--red);width:52px;text-align:right;">仅 6.4%</span></div>
-        </div>
-        <div style="margin-bottom:8px;">
-          <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-family:var(--F);font-size:12px;font-weight:700;">CELINE</span><span class="sc-tag sct-r">几乎缺席</span></div>
-          <div style="display:flex;gap:4px;align-items:center;margin-bottom:2px;"><span style="font-family:var(--F);font-size:9px;color:var(--muted);width:48px;">受众偏好</span><div style="flex:1;height:6px;background:var(--creamD);border-radius:3px;overflow:hidden;"><div style="height:100%;width:26%;background:var(--olive);"></div></div><span style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--olive);width:52px;text-align:right;">TGI 2300</span></div>
-          <div style="display:flex;gap:4px;align-items:center;"><span style="font-family:var(--F);font-size:9px;color:var(--muted);width:48px;">内容占比</span><div style="flex:1;height:6px;background:var(--creamD);border-radius:3px;overflow:hidden;"><div style="height:100%;width:0.5%;background:var(--red);"></div></div><span style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--red);width:52px;text-align:right;">仅 0.5%</span></div>
-        </div>
-        <div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-family:var(--F);font-size:12px;font-weight:700;">LV</span><span class="sc-tag sct-g">基本匹配</span></div>
-          <div style="display:flex;gap:4px;align-items:center;margin-bottom:2px;"><span style="font-family:var(--F);font-size:9px;color:var(--muted);width:48px;">受众偏好</span><div style="flex:1;height:6px;background:var(--creamD);border-radius:3px;overflow:hidden;"><div style="height:100%;width:23%;background:var(--olive);"></div></div><span style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--olive);width:52px;text-align:right;">TGI 2020</span></div>
-          <div style="display:flex;gap:4px;align-items:center;"><span style="font-family:var(--F);font-size:9px;color:var(--muted);width:48px;">内容占比</span><div style="flex:1;height:6px;background:var(--creamD);border-radius:3px;overflow:hidden;"><div style="height:100%;width:15.5%;background:var(--green);"></div></div><span style="font-family:var(--F);font-size:9px;font-weight:700;color:var(--green);width:52px;text-align:right;">15.5%</span></div>
+      <!-- 受众画像 -->
+      <div class="gl gl-pad" style="flex:1;">
+        <div class="sec-title">核心受众画像</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">
+          <div style="padding:5px 11px;background:rgba(122,140,110,.15);border-radius:16px;font-family:var(--F);font-size:11px;color:var(--oliveD);">女性 85.8% · TGI 130</div>
+          <div style="padding:5px 11px;background:rgba(122,140,110,.15);border-radius:16px;font-family:var(--F);font-size:11px;color:var(--oliveD);">高消费 64.7% · TGI 355</div>
+          <div style="padding:5px 11px;background:rgba(122,140,110,.15);border-radius:16px;font-family:var(--F);font-size:11px;color:var(--oliveD);">有房有车 87.8% · TGI 154</div>
+          <div style="padding:5px 11px;background:rgba(122,140,110,.15);border-radius:16px;font-family:var(--F);font-size:11px;color:var(--oliveD);">8000+手机 56% · TGI 311</div>
+          <div style="padding:5px 11px;background:rgba(122,140,110,.15);border-radius:16px;font-family:var(--F);font-size:11px;color:var(--oliveD);">箱包偏好 TGI 2035</div>
+          <div style="padding:5px 11px;background:rgba(122,140,110,.15);border-radius:16px;font-family:var(--F);font-size:11px;color:var(--oliveD);">优奢享法人群 TGI 727</div>
         </div>
 
-        <div style="margin-top:8px;display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(122,140,110,.12);border-radius:6px;">
-          <span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);">🎯 KOS发现：</span>
-          <span style="font-family:var(--F);font-size:10px;color:var(--charcoal);">精准账号转化率 0.30%，是主号 <b style="color:var(--olive);">15倍</b>，却只获得极少预算 → 立即加投</span>
+        <div class="hb hb-o">
+          <div class="hb-lbl o">三大关键发现</div>
+          <div class="hb-txt">
+            <div class="frow"><div class="fdot" style="background:var(--red);"></div><div class="ftxt"><b>内容错配：</b>BV是受众第一偏好（TGI 8929），内容消耗仅占 6.4%，反差高达140倍</div></div>
+            <div class="frow"><div class="fdot" style="background:var(--orange);"></div><div class="ftxt"><b>KOS低配：</b>精准账号转化率 0.30%，是主号15倍，却只获极少预算</div></div>
+            <div class="frow" style="border:none;"><div class="fdot" style="background:var(--green);"></div><div class="ftxt"><b>搜索机会：</b>搜索场域竞争极低，蓝海词 CVR 高达 20-33%</div></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="sk-divider"></div>
-
-    <!-- 右：使用说明 -->
-    <div class="sk-howto">
-      <div class="sk-panel-head">
-        <span class="sk-panel-tag tag-howto">2 · 使用说明</span>
-        <span class="sk-panel-title">两份材料 · 生成专业一方数据报告</span>
+    <!-- 右 -->
+    <div class="col col-1">
+      <div class="gl gl-pad" style="flex:1;">
+        <div class="sec-title">品牌偏好 × 内容消耗 · 错配可视化</div>
+        <!-- BV -->
+        <div style="margin-bottom:10px;padding:10px 12px;background:rgba(192,57,43,.06);border-radius:8px;border-left:3px solid var(--red);">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-family:var(--F);font-size:13px;font-weight:700;">BV</span><span class="tag tag-r">严重低配</span></div>
+          <div style="display:flex;gap:4px;align-items:center;margin-bottom:3px;"><span style="font-family:var(--F);font-size:10px;color:var(--muted);width:52px;">受众偏好</span><div style="flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden;"><div style="height:100%;width:100%;background:var(--olive);"></div></div><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);width:56px;text-align:right;">TGI 8929</span></div>
+          <div style="display:flex;gap:4px;align-items:center;"><span style="font-family:var(--F);font-size:10px;color:var(--muted);width:52px;">内容消耗</span><div style="flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden;"><div style="height:100%;width:6.4%;background:var(--red);"></div></div><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--red);width:56px;text-align:right;">仅 6.4%</span></div>
+        </div>
+        <!-- CELINE -->
+        <div style="margin-bottom:10px;padding:10px 12px;background:rgba(192,57,43,.04);border-radius:8px;border-left:3px solid var(--orange);">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-family:var(--F);font-size:13px;font-weight:700;">CELINE</span><span class="tag tag-r">几乎缺席</span></div>
+          <div style="display:flex;gap:4px;align-items:center;margin-bottom:3px;"><span style="font-family:var(--F);font-size:10px;color:var(--muted);width:52px;">受众偏好</span><div style="flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden;"><div style="height:100%;width:26%;background:var(--olive);"></div></div><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);width:56px;text-align:right;">TGI 2300</span></div>
+          <div style="display:flex;gap:4px;align-items:center;"><span style="font-family:var(--F);font-size:10px;color:var(--muted);width:52px;">内容消耗</span><div style="flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden;"><div style="height:100%;width:0.5%;background:var(--red);"></div></div><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--red);width:56px;text-align:right;">仅 0.5%</span></div>
+        </div>
+        <!-- LV -->
+        <div style="margin-bottom:10px;padding:10px 12px;background:rgba(39,174,96,.06);border-radius:8px;border-left:3px solid var(--green);">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-family:var(--F);font-size:13px;font-weight:700;">LV</span><span class="tag tag-g">基本匹配</span></div>
+          <div style="display:flex;gap:4px;align-items:center;margin-bottom:3px;"><span style="font-family:var(--F);font-size:10px;color:var(--muted);width:52px;">受众偏好</span><div style="flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden;"><div style="height:100%;width:23%;background:var(--olive);"></div></div><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);width:56px;text-align:right;">TGI 2020</span></div>
+          <div style="display:flex;gap:4px;align-items:center;"><span style="font-family:var(--F);font-size:10px;color:var(--muted);width:52px;">内容消耗</span><div style="flex:1;height:7px;background:var(--creamD);border-radius:4px;overflow:hidden;"><div style="height:100%;width:15.5%;background:var(--green);"></div></div><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--green);width:56px;text-align:right;">15.5%</span></div>
+        </div>
+        <!-- KOS -->
+        <div style="padding:10px 12px;background:rgba(122,140,110,.1);border-radius:8px;border-left:3px solid var(--olive);">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-family:var(--F);font-size:12px;font-weight:700;color:var(--olive);">🎯 KOS账号效率发现</span><span class="tag tag-o">立即加投</span></div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div style="flex:1;text-align:center;"><div style="font-family:var(--F);font-size:clamp(16px,2.2vw,22px);font-weight:900;color:var(--olive);">0.30%</div><div style="font-family:var(--F);font-size:10px;color:var(--muted);">精准账号转化率</div></div>
+            <div style="font-family:var(--F);font-size:1.5em;color:var(--muted);">vs</div>
+            <div style="flex:1;text-align:center;"><div style="font-family:var(--F);font-size:clamp(16px,2.2vw,22px);font-weight:900;color:var(--red);">0.02%</div><div style="font-family:var(--F);font-size:10px;color:var(--muted);">主号转化率</div></div>
+            <div style="font-family:var(--F);font-size:1.5em;color:var(--muted);">=</div>
+            <div style="flex:1;text-align:center;"><div style="font-family:var(--F);font-size:clamp(20px,2.8vw,28px);font-weight:900;color:var(--olive);">15×</div><div style="font-family:var(--F);font-size:10px;color:var(--muted);">精准度差距</div></div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="sfoot">Skill 3 · 一方数据分析 · 案例</div>
+</div>
+</section>
 
-      <div class="gl" style="padding:10px 13px;flex-shrink:0;">
-        <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--charcoal);margin-bottom:6px;">📂 所需材料（仅两份）</div>
+<!-- ══ 08 SKILL3 HOW-TO ══ -->
+<section>
+<div class="si bg-light">
+  <div class="top-bar tb-a"></div>
+  <div class="corner c-tl"></div><div class="corner c-br"></div>
+  <div class="logo"><div class="l1">SKILL 03</div><div class="l2">使用说明 · HOW TO USE</div></div>
+  <div class="snum">08 / 10</div>
+  <div class="shd">
+    <div class="skill-badge sb-a">Skill 3 · 使用说明</div>
+    <h2>两份材料 · 生成专业一方数据复盘报告</h2>
+    <p>聚光结案 xlsx + IDEA 受众报告 → 五大维度深度分析 → 可视化 HTML 报告 + 可分享链接</p>
+  </div>
+  <div class="body">
+    <!-- 左 -->
+    <div class="col col-1">
+      <div class="gl gl-pad" style="flex-shrink:0;">
+        <div class="sec-title">📂 所需材料（仅两份）</div>
         <table class="dt">
-          <thead><tr><th>材料</th><th>获取路径</th><th>用途</th></tr></thead>
+          <thead><tr><th>材料</th><th>获取路径</th><th>包含信息</th></tr></thead>
           <tbody>
-            <tr><td><b>结案 xlsx</b></td><td>聚光→报表→自定义结案</td><td>消耗/成交/笔记榜</td></tr>
-            <tr><td><b>IDEA 受众报告</b></td><td>聚光→IDEA→受众分析→下载</td><td>人群画像/品牌TGI</td></tr>
+            <tr><td><b>结案 xlsx</b></td><td>聚光 → 报表 → 自定义结案 → 下载</td><td>消耗/成交UV/笔记榜单</td></tr>
+            <tr><td><b>IDEA 受众报告</b></td><td>聚光 → IDEA → 受众分析 → 导出</td><td>人群画像/品牌TGI/标签</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="gl" style="padding:10px 13px;flex-shrink:0;">
-        <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--charcoal);margin-bottom:6px;">📊 五大分析维度</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <div style="display:flex;gap:8px;align-items:center;padding:4px 8px;background:rgba(122,140,110,.1);border-radius:5px;"><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);min-width:72px;">ROI 真相</span><span style="font-family:var(--F);font-size:10px;color:var(--muted);">可归因 vs 全口径 · 修正被低估的真实 ROI</span></div>
-          <div style="display:flex;gap:8px;align-items:center;padding:4px 8px;background:rgba(122,140,110,.1);border-radius:5px;"><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);min-width:72px;">笔记生命周期</span><span style="font-family:var(--F);font-size:10px;color:var(--muted);">0-30天/31-90天/91天+ · 论证老笔记价值</span></div>
-          <div style="display:flex;gap:8px;align-items:center;padding:4px 8px;background:rgba(122,140,110,.1);border-radius:5px;"><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);min-width:72px;">IDEA联动</span><span style="font-family:var(--F);font-size:10px;color:var(--muted);">品牌TGI × 内容消耗 · 找内容盲区</span></div>
-          <div style="display:flex;gap:8px;align-items:center;padding:4px 8px;background:rgba(122,140,110,.1);border-radius:5px;"><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);min-width:72px;">账号效率矩阵</span><span style="font-family:var(--F);font-size:10px;color:var(--muted);">各账号 UV × 成交转化率 · 优化账号预算</span></div>
-          <div style="display:flex;gap:8px;align-items:center;padding:4px 8px;background:rgba(122,140,110,.1);border-radius:5px;"><span style="font-family:var(--F);font-size:10px;font-weight:700;color:var(--olive);min-width:72px;">搜索场域</span><span style="font-family:var(--F);font-size:10px;color:var(--muted);">热搜词成交排名 · 优化搜索 ROI</span></div>
+      <div class="gl gl-pad" style="flex:1;">
+        <div class="sec-title">📊 五大分析维度</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 10px;background:rgba(122,140,110,.1);border-radius:7px;">
+            <span style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);min-width:76px;">ROI 真相</span>
+            <span style="font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);">可归因 vs 全口径成交 · 修正被严重低估的真实 ROI</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 10px;background:rgba(122,140,110,.1);border-radius:7px;">
+            <span style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);min-width:76px;">笔记生命周期</span>
+            <span style="font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);">0-30天 / 31-90天 / 91天+ 效率对比 · 论证老笔记价值</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 10px;background:rgba(122,140,110,.1);border-radius:7px;">
+            <span style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);min-width:76px;">IDEA 联动</span>
+            <span style="font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);">品牌 TGI × 内容消耗占比 · 找内容盲区 · 发现错配</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 10px;background:rgba(122,140,110,.1);border-radius:7px;">
+            <span style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);min-width:76px;">账号效率矩阵</span>
+            <span style="font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);">各账号触达UV × 成交转化率 · 优化账号预算分配</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 10px;background:rgba(122,140,110,.1);border-radius:7px;">
+            <span style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);min-width:76px;">搜索场域</span>
+            <span style="font-family:var(--F);font-size:clamp(10px,.95vw,12px);color:var(--muted);">热搜词成交率排名 · 蓝海词 / 红海词识别 · 优化搜索ROI</span>
+          </div>
         </div>
       </div>
 
-      <div class="prompt-box" style="flex:1;">
+            <!-- 分享方式 -->
+      <div style="display:flex;gap:8px;flex-shrink:0;">
+        <div style="flex:1;padding:10px 12px;background:rgba(122,140,110,.12);border-radius:8px;text-align:center;">
+          <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);margin-bottom:3px;">📤 Hi IM 上传</div>
+          <div style="font-family:var(--F);font-size:10px;color:var(--muted);">上传 HTML → 获取链接<br>→ 发给客户（内部首选）</div>
+        </div>
+        <div style="flex:1;padding:10px 12px;background:rgba(122,140,110,.12);border-radius:8px;text-align:center;">
+          <div style="font-family:var(--F);font-size:11px;font-weight:700;color:var(--olive);margin-bottom:3px;">💻 本地打开</div>
+          <div style="font-family:var(--F);font-size:10px;color:var(--muted);">下载 HTML 文件<br>双击浏览器，适合线下演示</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右：Prompt -->
+    <div class="col col-1">
+      <div class="prompt" style="flex:1;">
         <div class="prompt-lbl">生成报告 Prompt（填入数据后直接使用）</div>
         <div class="prompt-txt">你是资深小红书投放策略顾问，请基于以下数据生成完整投放复盘报告。<br><br>
-要求：reveal.js框架，橄榄绿+米白风格，毛玻璃卡片<br><br>
-【数据】<br>
-品牌名称：___<br>
-总消耗：___万元 / 触达UV：___万人<br>
-可归因成交UV：___人 / 未归因：___人<br>
-女性占比：___% TGI___ / 高消费：___% TGI___<br>
-[粘贴结案xlsx关键数据]</div>
+要求：<br>
+· reveal.js 框架，橄榄绿+米白风格，毛玻璃卡片<br>
+· 共13页：封面→目录→五大核心结论→ROI真相→笔记生命周期<br>
+  →IDEA联动→受众画像→内容优化→账号效率→搜索场域→综合行动优先级<br>
+· 所有数字来自下方数据，不要编造<br><br>
+【基础信息】<br>
+品牌名称：___  统计周期：___  核心业务：___<br><br>
+【消耗与触达】（结案xlsx · Sheet 3）<br>
+总消耗：___万元  触达UV：___万人<br>
+可归因成交UV：___人  未归因：___人<br><br>
+【受众画像】（IDEA xlsx）<br>
+女性占比：___% TGI___  高消费：___% TGI___<br>
+有房有车：___% TGI___  设备：___% TGI___<br>
+品牌TGI Top3：①___TGI___ ②___TGI___ ③___TGI___<br><br>
+【笔记生命周期】（结案xlsx · Sheet 10，按创建时间分组）<br>
+0-30天：篇均成交___人<br>
+31-90天：篇均成交___人<br>
+91天+：篇均成交___人</div>
+      </div>
+
+      <div class="gl gl-pad" style="flex-shrink:0;margin-top:2px;">
+        <div class="sec-title">📌 结案 xlsx 关键 Sheet 速查</div>
+        <table class="dt">
+          <thead><tr><th>Sheet</th><th>包含内容</th><th>主要用途</th></tr></thead>
+          <tbody>
+            <tr><td>Sheet 3</td><td>聚光效果广告汇总</td><td>总消耗/ROI/触达UV</td></tr>
+            <tr><td>Sheet 6</td><td>归因概览</td><td>可归因/未归因成交UV</td></tr>
+            <tr><td>Sheet 10</td><td>转化分析·笔记榜</td><td>各笔记成交/消耗/成交率</td></tr>
+            <tr><td>Sheet 11</td><td>转化分析·热搜词榜</td><td>搜索词成交率</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  <div class="sfoot">Skill 3 · 一方数据分析</div>
+  <div class="sfoot">Skill 3 · 一方数据分析 · 使用说明</div>
 </div>
 </section>
 
-<!-- ══ S6 LESSON & LEARN ══ -->
+<!-- ══ 09 LESSON ══ -->
 <section>
 <div class="si bg-dark">
-  <div class="top-bar tb-dark"></div>
-  <div class="corner corner-tl lt"></div><div class="corner corner-br lt"></div>
+  <div class="top-bar tb-d"></div>
+  <div class="corner c-tl c-lt"></div><div class="corner c-br c-lt"></div>
   <div class="logo lw"><div class="l1">LESSON</div><div class="l2">& LEARN</div></div>
-  <div class="snum w">06 / 07</div>
+  <div class="snum w">09 / 10</div>
   <div class="shd">
     <h2 class="w">三条经验，送给组内的你</h2>
-    <p class="w">不只是工具，是工作方式的质变</p>
+    <p class="w">不只是省了时间，是工作方式的质变</p>
   </div>
   <div class="lc">
     <div class="lcard" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);">
@@ -599,7 +857,7 @@
       <div class="licon">⚡</div>
       <div style="flex:1;">
         <div class="ltitle">不只是「省了时间」，是工作方式的质变</div>
-        <div class="lbody">从<b style="color:var(--accent);">「救火模式」→「主动诊断」</b>，服务时间轴整体前移。客户掉量之前你已在预警；复盘时给出的不是感觉，是数据支撑的专业判断。</div>
+        <div class="lbody">从<b style="color:var(--accent);">「救火模式」→「主动诊断」</b>，服务时间轴整体前移。客户掉量之前你已经在预警；复盘时给出的不是感觉，是数据支撑的专业判断。</div>
       </div>
       <div class="lbig">03</div>
     </div>
@@ -608,25 +866,25 @@
 </div>
 </section>
 
-<!-- ══ S7 ENDING ══ -->
+<!-- ══ 10 ENDING ══ -->
 <section>
 <div class="si bg-dark">
-  <div class="top-bar tb-accent"></div>
-  <div class="corner corner-tl lt"></div><div class="corner corner-br lt"></div>
+  <div class="top-bar tb-a"></div>
+  <div class="corner c-tl c-lt"></div><div class="corner c-br c-lt"></div>
   <div class="logo lw"><div class="l1">AI SALES</div><div class="l2">WORKFLOW · 2026</div></div>
-  <div class="snum w">07 / 07</div>
-  <div class="end-wrap">
-    <div class="end-wm">AI</div>
-    <div class="end-card gl" style="position:relative;z-index:2;">
-      <div class="end-title">AI 不是终点<br><span style="color:var(--olive);">是让你飞得更高的翅膀</span></div>
-      <div class="end-line"></div>
-      <div class="end-stats">
+  <div class="snum w">10 / 10</div>
+  <div class="ew">
+    <div class="ewm">AI</div>
+    <div class="ecard gl" style="position:relative;z-index:2;">
+      <div class="etitle">AI 不是终点<br><span style="color:var(--olive);">是让你飞得更高的翅膀</span></div>
+      <div class="eline"></div>
+      <div class="estats">
         <div><div class="esv">~30%</div><div class="esl">新增业绩贡献</div></div>
         <div><div class="esv">44+</div><div class="esl">话术知识库章节</div></div>
         <div><div class="esv">3段</div><div class="esl">可复用标准工作流</div></div>
       </div>
       <div style="font-family:var(--F);font-size:12px;color:var(--muted);margin-bottom:5px;">欢迎联系获取话术库 & 工作流模板</div>
-      <div class="end-author">橘玲（冯麟炎）｜ 行业五组 · 八部-二奢 · 2026.04</div>
+      <div style="font-family:var(--F);font-size:11px;color:rgba(44,44,44,.45);letter-spacing:2px;">橘玲（冯麟炎）｜ 行业五组 · 八部-二奢 · 2026.04</div>
     </div>
   </div>
   <div class="sfoot w">AI 赋能销售全流程 · 二奢行业实践 · 2026</div>
