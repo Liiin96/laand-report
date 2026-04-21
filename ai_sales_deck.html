@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI赋能销售全流程 · 二奢行业实践</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+:root {
+  --olive: #5C7A5C;
+  --oliveM: #7A8C6E;
+  --oliveL: #A3B496;
+  --cream: #F5F0E8;
+  --creamD: #EDE6D6;
+  --charcoal: #2C2C2C;
+  --accent: #C8B89A;
+  --muted: #8A8A8A;
+  --red: #C0392B;
+  --orange: #D35400;
+  --green: #27AE60;
+  --gold: #B8860B;
+  --white: #FFFFFF;
+  --F: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ── 全局 ── */
+.reveal { font-family: var(--F); }
+.reveal .slides section {
+  height: 100%; width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* ── 背景变体 ── */
+.bg-dark  { background: var(--charcoal) !important; }
+.bg-olive { background: var(--olive) !important; }
+.bg-cream { background: var(--cream) !important; }
+.bg-white { background: var(--white) !important; }
+
+/* ── 装饰 ── */
+.top-stripe {
+  position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, var(--olive), var(--accent), var(--oliveL));
+}
+.slide-num {
+  position: absolute; bottom: 14px; right: 22px;
+  font-size: 11px; color: var(--muted); letter-spacing: 1px;
+}
+
+/* ── 通用文字 ── */
+.t-white  { color: var(--white) !important; }
+.t-olive  { color: var(--olive) !important; }
+.t-oliveM { color: var(--oliveM) !important; }
+.t-accent { color: var(--accent) !important; }
+.t-muted  { color: var(--muted) !important; }
+.t-red    { color: var(--red) !important; }
+.t-orange { color: var(--orange) !important; }
+.t-green  { color: var(--green) !important; }
+.t-gold   { color: var(--gold) !important; }
+.t-dark   { color: var(--charcoal) !important; }
+
+/* ── 卡片 ── */
+.glass {
+  background: rgba(255,255,255,0.92);
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding: 20px 22px;
+}
+.card-olive {
+  background: var(--olive);
+  border-radius: 10px;
+  padding: 18px 20px;
+  color: white;
+}
+.card-cream {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 16px 20px;
+  border: 1.5px solid var(--creamD);
+}
+.card-red {
+  background: #FFF3F3;
+  border-radius: 8px;
+  border-left: 4px solid var(--red);
+  padding: 12px 16px;
+}
+.card-green {
+  background: #F0FAF3;
+  border-radius: 8px;
+  border-left: 4px solid var(--green);
+  padding: 12px 16px;
+}
+.card-orange {
+  background: #FFF8F0;
+  border-radius: 8px;
+  border-left: 4px solid var(--orange);
+  padding: 12px 16px;
+}
+
+/* ── 标签 ── */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.tag-olive  { background: var(--olive); color: white; }
+.tag-red    { background: var(--red); color: white; }
+.tag-orange { background: var(--orange); color: white; }
+.tag-green  { background: var(--green); color: white; }
+.tag-gold   { background: var(--gold); color: white; }
+.tag-grey   { background: #E0E0E0; color: var(--charcoal); }
+
+/* ── 大数字 ── */
+.stat-val { font-size: 2.4em; font-weight: 900; line-height: 1.1; }
+.stat-lbl { font-size: 0.62em; color: var(--muted); margin-top: 2px; }
+
+/* ── 进度条 ── */
+.bar-wrap { background: #E8E8E8; border-radius: 4px; height: 10px; }
+.bar-fill { height: 10px; border-radius: 4px; }
+
+/* ── 流程步骤 ── */
+.step {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 14px;
+}
+.step-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--olive); color: white;
+  font-size: 15px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.step-body { flex: 1; }
+
+/* ── 表格 ── */
+.reveal table {
+  font-size: 0.62em;
+  border-collapse: collapse;
+  width: 100%;
+}
+.reveal table th {
+  background: var(--charcoal); color: white;
+  padding: 7px 10px; font-weight: 700;
+  border: none;
+}
+.reveal table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #E8E8E8;
+  color: var(--charcoal);
+}
+.reveal table tr:nth-child(even) td { background: #F9F9F7; }
+
+/* ── 结果徽章 ── */
+.result-badge {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  margin-bottom: 8px;
+}
+.badge-icon { font-size: 1.4em; flex-shrink: 0; }
+.badge-text { font-size: 0.72em; line-height: 1.4; }
+
+/* ── 分栏 ── */
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.cols-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+
+/* 覆盖 reveal 默认 */
+.reveal h1,.reveal h2,.reveal h3,.reveal h4 {
+  font-family: var(--F);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.reveal ul, .reveal ol { margin: 0; padding-left: 1.2em; }
+.reveal li { margin-bottom: 5px; font-size: 0.7em; }
+.reveal p { margin: 0 0 8px; }
+
+.slide-inner {
+  padding: 36px 44px 28px;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 封面特殊 */
+.cover-box {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -52%);
+  text-align: center;
+  width: 80%;
+}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ══════════════════════════════════
+  S1 封面
+══════════════════════════════════ -->
+<section data-background-color="#2C2C2C">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div class="cover-box">
+      <!-- 主标题 -->
+      <div style="background:var(--cream);border-radius:14px;padding:36px 48px 28px;box-shadow:0 8px 40px rgba(0,0,0,0.3);">
+        <div style="font-size:0.55em;letter-spacing:4px;color:var(--muted);margin-bottom:6px;">🏆 SALES AI PRACTICE · 2026</div>
+        <div style="font-size:1.45em;font-weight:900;color:var(--charcoal);line-height:1.2;margin-bottom:8px;">
+          AI 赋能销售全流程
+        </div>
+        <div style="font-size:0.85em;font-weight:700;color:var(--olive);margin-bottom:20px;">二奢行业实践</div>
+        <div style="height:3px;background:linear-gradient(90deg,var(--olive),var(--accent));border-radius:2px;margin-bottom:20px;"></div>
+
+        <!-- 三段式 -->
+        <div class="cols-3" style="text-align:center;gap:10px;">
+          <div style="background:var(--olive);border-radius:8px;padding:12px 8px;color:white;">
+            <div style="font-size:1.3em;">📋</div>
+            <div style="font-size:0.6em;font-weight:700;margin-top:4px;">报白话术库</div>
+            <div style="font-size:0.48em;opacity:0.8;margin-top:2px;">新客引入</div>
+          </div>
+          <div style="background:var(--charcoal);border-radius:8px;padding:12px 8px;color:white;">
+            <div style="font-size:1.3em;">🔍</div>
+            <div style="font-size:0.6em;font-weight:700;margin-top:4px;">投放复盘诊断</div>
+            <div style="font-size:0.48em;opacity:0.8;margin-top:2px;">投放中期</div>
+          </div>
+          <div style="background:var(--accent);border-radius:8px;padding:12px 8px;color:var(--charcoal);">
+            <div style="font-size:1.3em;">📊</div>
+            <div style="font-size:0.6em;font-weight:700;margin-top:4px;">一方数据报告</div>
+            <div style="font-size:0.48em;opacity:0.7;margin-top:2px;">客户成熟期</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 副标题 -->
+      <div style="margin-top:18px;display:flex;justify-content:center;gap:24px;align-items:center;">
+        <div style="color:var(--accent);font-size:0.6em;">橘玲（冯麟炎）｜ 行业五组（八部-二奢）</div>
+        <div style="width:1px;height:14px;background:var(--muted);"></div>
+        <div style="color:var(--muted);font-size:0.6em;">2026.04</div>
+      </div>
+    </div>
+
+    <div class="slide-num t-muted">01 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S2 核心成果
+══════════════════════════════════ -->
+<section data-background-color="#F5F0E8">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:14px;">
+      <span class="tag tag-olive">核心成果</span>
+      <h2 style="font-size:1.3em;font-weight:900;color:var(--charcoal);margin:6px 0 2px;">三段 AI 工作流，贡献近三成新增业绩</h2>
+      <p style="font-size:0.6em;color:var(--muted);">新客引入 → 投放中期诊断 → 成熟期深度运营，全链路 AI 赋能</p>
+    </div>
+
+    <div class="cols-4" style="margin-bottom:14px;">
+      <div class="glass" style="text-align:center;">
+        <div class="stat-val t-olive">~30%</div>
+        <div class="stat-lbl">新客引入业绩增量</div>
+      </div>
+      <div class="glass" style="text-align:center;">
+        <div class="stat-val t-olive">秒级</div>
+        <div class="stat-lbl">话术响应（原分钟级）</div>
+      </div>
+      <div class="glass" style="text-align:center;">
+        <div class="stat-val t-olive">44+</div>
+        <div class="stat-lbl">话术知识库章节</div>
+      </div>
+      <div class="glass" style="text-align:center;">
+        <div class="stat-val t-olive">3段</div>
+        <div class="stat-lbl">标准化可复用工作流</div>
+      </div>
+    </div>
+
+    <div class="cols-3">
+      <div class="card-green">
+        <div style="font-size:0.65em;font-weight:700;color:var(--green);margin-bottom:6px;">📋 新客引入</div>
+        <div style="font-size:0.6em;color:var(--charcoal);line-height:1.6;">
+          报白卡点响应从翻记录<br>
+          <b>分钟级 → 秒级</b><br>
+          合规指引直接进入客户服务流程
+        </div>
+      </div>
+      <div class="card-orange">
+        <div style="font-size:0.65em;font-weight:700;color:var(--orange);margin-bottom:6px;">🔍 投放诊断</div>
+        <div style="font-size:0.6em;color:var(--charcoal);line-height:1.6;">
+          掉量/成本超标：人工逐条排查<br>
+          → <b>AI 结构化诊断报告</b><br>
+          问题定位更准，响应更快
+        </div>
+      </div>
+      <div class="card-red" style="border-left-color:var(--olive);background:#F0FAF0;">
+        <div style="font-size:0.65em;font-weight:700;color:var(--olive);margin-bottom:6px;">📊 一方分析</div>
+        <div style="font-size:0.6em;color:var(--charcoal);line-height:1.6;">
+          销售侧分析效率&洞察深度双提升<br>
+          → <b>人群/内容/效果策略建议</b><br>
+          更有说服力的专业判断
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;padding:10px 16px;background:var(--charcoal);border-radius:8px;">
+      <span style="font-size:0.6em;color:var(--accent);">💡 本质转变：</span>
+      <span style="font-size:0.6em;color:white;">从「救火模式」→「主动诊断」，服务时间轴整体前移；AI 承担脏活，销售专注客户沟通和策略判断</span>
+    </div>
+
+    <div class="slide-num">02 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S3 三段式工作流总览
+══════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:16px;">
+      <span class="tag tag-grey">工作流总览</span>
+      <h2 style="font-size:1.25em;font-weight:900;color:var(--charcoal);margin:6px 0 2px;">客户全生命周期 × AI 三段式覆盖</h2>
+    </div>
+
+    <!-- 流程图 -->
+    <div style="display:flex;align-items:stretch;gap:0;margin-bottom:16px;">
+
+      <!-- 阶段1 -->
+      <div style="flex:1;background:var(--olive);border-radius:10px 0 0 10px;padding:18px 16px;color:white;">
+        <div style="font-size:0.55em;opacity:0.8;letter-spacing:2px;margin-bottom:4px;">阶段 01</div>
+        <div style="font-size:0.75em;font-weight:900;margin-bottom:10px;">新客引入</div>
+        <div style="font-size:1.8em;margin-bottom:8px;">📋</div>
+        <div style="font-size:0.58em;opacity:0.9;line-height:1.6;">
+          报白话术知识库<br>
+          30+ 章核心话术<br>
+          可召唤式应答
+        </div>
+        <div style="margin-top:10px;background:rgba(255,255,255,0.2);border-radius:6px;padding:6px 10px;font-size:0.52em;">
+          🎯 新人上手时间大幅缩短
+        </div>
+      </div>
+
+      <!-- 箭头 -->
+      <div style="width:30px;background:var(--creamD);display:flex;align-items:center;justify-content:center;">
+        <div style="font-size:1.2em;color:var(--muted);">▶</div>
+      </div>
+
+      <!-- 阶段2 -->
+      <div style="flex:1;background:var(--charcoal);padding:18px 16px;color:white;">
+        <div style="font-size:0.55em;opacity:0.6;letter-spacing:2px;margin-bottom:4px;">阶段 02</div>
+        <div style="font-size:0.75em;font-weight:900;margin-bottom:10px;">投放中期</div>
+        <div style="font-size:1.8em;margin-bottom:8px;">🔍</div>
+        <div style="font-size:0.58em;opacity:0.9;line-height:1.6;">
+          掉量诊断 &amp; 品牌复盘<br>
+          计划/素材/出价三维度<br>
+          P0/P1 结构化行动清单
+        </div>
+        <div style="margin-top:10px;background:rgba(255,255,255,0.12);border-radius:6px;padding:6px 10px;font-size:0.52em;">
+          🎯 问题定位更准，响应更快
+        </div>
+      </div>
+
+      <!-- 箭头 -->
+      <div style="width:30px;background:var(--creamD);display:flex;align-items:center;justify-content:center;">
+        <div style="font-size:1.2em;color:var(--muted);">▶</div>
+      </div>
+
+      <!-- 阶段3 -->
+      <div style="flex:1;background:var(--accent);border-radius:0 10px 10px 0;padding:18px 16px;color:var(--charcoal);">
+        <div style="font-size:0.55em;opacity:0.7;letter-spacing:2px;margin-bottom:4px;">阶段 03</div>
+        <div style="font-size:0.75em;font-weight:900;margin-bottom:10px;">成熟深运营</div>
+        <div style="font-size:1.8em;margin-bottom:8px;">📊</div>
+        <div style="font-size:0.58em;line-height:1.6;">
+          一方数据投放报告<br>
+          IDEA 受众分析<br>
+          人群渗透&内容洞察
+        </div>
+        <div style="margin-top:10px;background:rgba(255,255,255,0.5);border-radius:6px;padding:6px 10px;font-size:0.52em;">
+          🎯 专业判断，强化续投意愿
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部说明 -->
+    <div class="cols-3" style="gap:10px;">
+      <div style="text-align:center;font-size:0.55em;color:var(--muted);">
+        <b style="color:var(--olive);">适用对象</b><br>新客 / baby 阶段
+      </div>
+      <div style="text-align:center;font-size:0.55em;color:var(--muted);">
+        <b style="color:var(--charcoal);">适用对象</b><br>投放中期 / 出现问题
+      </div>
+      <div style="text-align:center;font-size:0.55em;color:var(--muted);">
+        <b style="color:var(--gold);">适用对象</b><br>成熟期 / 头部客户
+      </div>
+    </div>
+
+    <div style="margin-top:10px;padding:8px 14px;background:var(--cream);border-radius:6px;text-align:center;">
+      <span style="font-size:0.55em;color:var(--olive);font-weight:700;">✅ 全部标准化沉淀，可跨行业组复用</span>
+    </div>
+
+    <div class="slide-num">03 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S4 Skill一：报白话术库（使用方法）
+══════════════════════════════════ -->
+<section data-background-color="#F5F0E8">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:12px;">
+      <span class="tag tag-olive">Skill 01</span>
+      <h2 style="font-size:1.25em;font-weight:900;color:var(--charcoal);margin:6px 0 2px;">报白话术知识库</h2>
+      <p style="font-size:0.58em;color:var(--muted);">新客引入阶段 · 遇到报白卡点，@AI 即得专业回答</p>
+    </div>
+
+    <div class="cols-2" style="gap:14px;">
+      <!-- 左：话术库结构 -->
+      <div>
+        <div style="font-size:0.65em;font-weight:700;color:var(--charcoal);margin-bottom:8px;">📚 三大话术库结构</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="glass" style="display:flex;align-items:center;gap:12px;padding:12px 16px;">
+            <div style="font-size:1.6em;">📋</div>
+            <div>
+              <div style="font-size:0.65em;font-weight:700;color:var(--olive);">报白流程话术库</div>
+              <div style="font-size:0.55em;color:var(--muted);">30章 · 资质要求、驳回处理、年框政策</div>
+            </div>
+            <div class="tag tag-olive" style="margin-left:auto;">30章</div>
+          </div>
+          <div class="glass" style="display:flex;align-items:center;gap:12px;padding:12px 16px;">
+            <div style="font-size:1.6em;">📈</div>
+            <div>
+              <div style="font-size:0.65em;font-weight:700;color:var(--charcoal);">投放优化知识库</div>
+              <div style="font-size:0.55em;color:var(--muted);">8章 · 跑量诊断、深转策略、素材过审</div>
+            </div>
+            <div class="tag tag-grey" style="margin-left:auto;">8章</div>
+          </div>
+          <div class="glass" style="display:flex;align-items:center;gap:12px;padding:12px 16px;">
+            <div style="font-size:1.6em;">🤝</div>
+            <div>
+              <div style="font-size:0.65em;font-weight:700;color:var(--charcoal);">客户跟进话术</div>
+              <div style="font-size:0.55em;color:var(--muted);">6章 · 年框催缴、产品跟进、关系维护</div>
+            </div>
+            <div class="tag tag-grey" style="margin-left:auto;">6章</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：使用示例 -->
+      <div>
+        <div style="font-size:0.65em;font-weight:700;color:var(--charcoal);margin-bottom:8px;">💬 实际使用示例</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:white;border-radius:10px;padding:12px 14px;border:1.5px solid var(--creamD);font-size:0.58em;">
+            <div style="color:var(--muted);margin-bottom:4px;">场景 1 · 资质驳回</div>
+            <div style="color:var(--charcoal);line-height:1.5;font-style:italic;">"客户是黄金回收行业，提交后一直显示资质不符…"</div>
+            <div style="margin-top:6px;color:var(--olive);font-weight:700;">→ AI 秒出对应话术，含注意事项</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:12px 14px;border:1.5px solid var(--creamD);font-size:0.58em;">
+            <div style="color:var(--muted);margin-bottom:4px;">场景 2 · 线下门店</div>
+            <div style="color:var(--charcoal);line-height:1.5;font-style:italic;">"我们店是线下门店，没有电商执照，能报白吗？"</div>
+            <div style="margin-top:6px;color:var(--olive);font-weight:700;">→ AI 精准引用报白边界说明</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:12px 14px;border:1.5px solid var(--creamD);font-size:0.58em;">
+            <div style="color:var(--muted);margin-bottom:4px;">场景 3 · 审核超时</div>
+            <div style="color:var(--charcoal);line-height:1.5;font-style:italic;">"资质提交了，审核超过3天没通过，怎么处理？"</div>
+            <div style="margin-top:6px;color:var(--olive);font-weight:700;">→ AI 给出催审流程与升级路径</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-num">04 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S5 Skill二：掉量诊断（案例）
+══════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:12px;">
+      <span class="tag tag-red">Skill 02 · 案例</span>
+      <h2 style="font-size:1.25em;font-weight:900;color:var(--charcoal);margin:6px 0 2px;">掉量诊断 · 用真账户实战</h2>
+      <p style="font-size:0.58em;color:var(--muted);">数据周期：4.1–4.19 · 总消耗 157,883 元</p>
+    </div>
+
+    <div class="cols-2" style="gap:14px;margin-bottom:12px;">
+      <!-- 左：诊断流程 -->
+      <div>
+        <div style="font-size:0.63em;font-weight:700;color:var(--charcoal);margin-bottom:8px;">⚡ AI 诊断流程（4步完成）</div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body" style="font-size:0.6em;color:var(--charcoal);">
+            <b>上传聚光数据</b><br>
+            <span style="color:var(--muted);">计划明细 / 笔记明细 / 营销诉求 / 链路总览</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body" style="font-size:0.6em;color:var(--charcoal);">
+            <b>AI 自动读取分析</b><br>
+            <span style="color:var(--muted);">场域/计划/素材/出价四维度归因</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body" style="font-size:0.6em;color:var(--charcoal);">
+            <b>输出结构化诊断报告</b><br>
+            <span style="color:var(--muted);">P0/P1/P2 优先级行动清单</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body" style="font-size:0.6em;color:var(--charcoal);">
+            <b>同步写入 RedDoc</b><br>
+            <span style="color:var(--muted);">内部留档 + 可直接发给客户</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：诊断结果 -->
+      <div>
+        <div style="font-size:0.63em;font-weight:700;color:var(--charcoal);margin-bottom:8px;">📋 AI 诊断输出（关键发现）</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="card-red">
+            <div style="font-size:0.6em;font-weight:700;color:var(--red);">🔴 P0 · 视频内流出血</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">CTR 仅 1.09%，CPC 高达 62.87 元 → 立即削减 50%+ 预算</div>
+          </div>
+          <div class="card-red">
+            <div style="font-size:0.6em;font-weight:700;color:var(--red);">🔴 P0 · Top1 素材低效</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">消耗 15,025 元，CTR 仅 1.70% → 降预算 50%，准备替换</div>
+          </div>
+          <div class="card-orange">
+            <div style="font-size:0.6em;font-weight:700;color:var(--orange);">🟡 P1 · 留资成本超标</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">291元 vs 基准 100-160元，主矛盾在话术承接而非广告出价</div>
+          </div>
+          <div class="card-green">
+            <div style="font-size:0.6em;font-weight:700;color:var(--green);">🟢 P2 · 蓝海搜索词机会</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">「二奢回收」竞争极低，CVR 高达 20-33%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 对比 -->
+    <div style="background:var(--cream);border-radius:8px;padding:10px 14px;display:flex;justify-content:space-around;align-items:center;">
+      <div style="text-align:center;">
+        <div style="font-size:0.55em;color:var(--muted);">传统方式</div>
+        <div style="font-size:0.7em;font-weight:700;color:var(--red);">人工逐条排查</div>
+        <div style="font-size:0.52em;color:var(--muted);">数小时</div>
+      </div>
+      <div style="font-size:1.4em;color:var(--olive);">→</div>
+      <div style="text-align:center;">
+        <div style="font-size:0.55em;color:var(--muted);">AI 诊断</div>
+        <div style="font-size:0.7em;font-weight:700;color:var(--green);">结构化报告输出</div>
+        <div style="font-size:0.52em;color:var(--muted);">分钟级完成</div>
+      </div>
+      <div style="font-size:1.4em;color:var(--olive);">+</div>
+      <div style="text-align:center;">
+        <div style="font-size:0.55em;color:var(--muted);">额外价值</div>
+        <div style="font-size:0.7em;font-weight:700;color:var(--olive);">归因更准确</div>
+        <div style="font-size:0.52em;color:var(--muted);">不再靠感觉</div>
+      </div>
+    </div>
+
+    <div class="slide-num">05 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S6 Skill二：品牌复盘（唯集致案例）
+══════════════════════════════════ -->
+<section data-background-color="#2C2C2C">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:12px;">
+      <span class="tag tag-gold">Skill 02 · 品牌复盘案例</span>
+      <h2 style="font-size:1.25em;font-weight:900;color:white;margin:6px 0 2px;">唯集致 · 季度品牌复盘</h2>
+      <p style="font-size:0.58em;color:var(--accent);">双版本报告输出：内部全量版 + 对客简版</p>
+    </div>
+
+    <div class="cols-2" style="gap:14px;">
+      <!-- 内部全量版 -->
+      <div style="background:rgba(255,255,255,0.07);border-radius:10px;padding:16px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <span class="tag tag-red">内部全量版</span>
+          <span style="font-size:0.55em;color:var(--muted);">写入 TASK 目录，内部留档</span>
+        </div>
+        <div style="font-size:0.58em;color:white;line-height:1.8;">
+          ✅ 年同比分析<br>
+          ✅ 场域诊断（搜索/信息流/视频内流）<br>
+          ✅ 优化目标结构分析<br>
+          ✅ 账号矩阵效率<br>
+          ✅ 出价达成情况<br>
+          ✅ P0/P1/P2 完整行动清单<br>
+          ✅ 竞品分析<br>
+          ✅ 手表品类机会
+        </div>
+      </div>
+
+      <!-- 对客简版 -->
+      <div style="background:rgba(200,184,154,0.15);border:1.5px solid var(--accent);border-radius:10px;padding:16px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <span class="tag tag-gold">对客简版</span>
+          <span style="font-size:0.55em;color:var(--accent);">正向成绩汇报风格</span>
+        </div>
+        <div style="font-size:0.58em;color:white;line-height:1.8;">
+          ✅ 投放成果亮点（CTR/苏州最优/CVR）<br>
+          ✅ 苏州竞品格局（强调优势）<br>
+          ✅ 手表品类机会<br>
+          ✅ 下阶段建议<br>
+          <br>
+          <span style="color:var(--muted);">❌ 不含：深转数据 / 出价详情</span><br>
+          <span style="color:var(--muted);">❌ 不含：内部掉量归因措辞</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心数据展示 -->
+    <div style="margin-top:12px;background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px;">
+      <div style="font-size:0.6em;font-weight:700;color:var(--accent);margin-bottom:8px;">📊 唯集致核心基准数据（2026Q1）</div>
+      <table style="font-size:0.58em;">
+        <thead>
+          <tr>
+            <th>账号</th><th>类型</th><th>开口成本</th><th>留资成本</th><th>CVR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>板娘豆豆唯集致二奢</td>
+            <td><span class="tag tag-olive" style="font-size:0.85em;">BFS</span></td>
+            <td style="color:var(--green);font-weight:700;">37.3元 ✅</td>
+            <td style="color:var(--green);font-weight:700;">43.4元 ✅</td>
+            <td>86.2%</td>
+          </tr>
+          <tr>
+            <td>板娘豆豆二手奢侈品</td>
+            <td><span class="tag tag-olive" style="font-size:0.85em;">BFS</span></td>
+            <td style="color:var(--green);font-weight:700;">38.8元 ✅</td>
+            <td style="color:var(--green);font-weight:700;">46.2元 ✅</td>
+            <td>84.0%</td>
+          </tr>
+          <tr>
+            <td>苏州豆豆二奢</td>
+            <td><span class="tag tag-grey" style="font-size:0.85em;">KOS</span></td>
+            <td>41.8元</td>
+            <td>47.8元</td>
+            <td style="color:var(--green);font-weight:700;">87.5% ✅</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:8px;font-size:0.55em;color:var(--accent);">🏆 苏州市场：唯集致开口成本54元、留资64元，是全赛道成本最低账号</div>
+    </div>
+
+    <div class="slide-num t-muted">06 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S7 Skill三：一方数据分析
+══════════════════════════════════ -->
+<section data-background-color="#F5F0E8">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:12px;">
+      <span class="tag tag-gold">Skill 03</span>
+      <h2 style="font-size:1.25em;font-weight:900;color:var(--charcoal);margin:6px 0 2px;">一方数据投放复盘报告</h2>
+      <p style="font-size:0.58em;color:var(--muted);">客户成熟期 · 聚光结案 + IDEA 受众 → 专业深度报告</p>
+    </div>
+
+    <div class="cols-2" style="gap:14px;margin-bottom:12px;">
+      <!-- 五大分析维度 -->
+      <div>
+        <div style="font-size:0.63em;font-weight:700;color:var(--charcoal);margin-bottom:8px;">📊 五大分析维度</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="glass" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:0.62em;font-weight:700;color:var(--olive);">ROI 真相</div>
+              <div style="font-size:0.52em;color:var(--muted);">可归因 vs 全口径成交，修正真实 ROI</div>
+            </div>
+            <span class="tag tag-olive">👁 客户必看</span>
+          </div>
+          <div class="glass" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:0.62em;font-weight:700;color:var(--charcoal);">笔记生命周期</div>
+              <div style="font-size:0.52em;color:var(--muted);">0-30天/31-90天/91天+ 效率对比</div>
+            </div>
+            <span class="tag tag-grey">论证老笔记价值</span>
+          </div>
+          <div class="glass" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:0.62em;font-weight:700;color:var(--charcoal);">IDEA 联动分析</div>
+              <div style="font-size:0.52em;color:var(--muted);">品牌 TGI × 内容消耗占比错配</div>
+            </div>
+            <span class="tag tag-grey">找内容盲区</span>
+          </div>
+          <div class="glass" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:0.62em;font-weight:700;color:var(--charcoal);">账号效率矩阵</div>
+              <div style="font-size:0.52em;color:var(--muted);">各账号触达UV × 成交转化率</div>
+            </div>
+            <span class="tag tag-grey">优化账号组合</span>
+          </div>
+          <div class="glass" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:0.62em;font-weight:700;color:var(--charcoal);">搜索场域分析</div>
+              <div style="font-size:0.52em;color:var(--muted);">热搜词成交率排名</div>
+            </div>
+            <span class="tag tag-grey">优化搜索 ROI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：LAAND 案例亮点 -->
+      <div>
+        <div style="font-size:0.63em;font-weight:700;color:var(--charcoal);margin-bottom:8px;">📌 LAAND 案例 · 核心洞察</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="card-orange">
+            <div style="font-size:0.6em;font-weight:700;color:var(--orange);">⚠️ 内容错配发现</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">
+              BV 是受众第一偏好（TGI 8929）<br>
+              却只占内容消耗 <b>6.4%</b>，严重低配
+            </div>
+          </div>
+          <div class="card-green">
+            <div style="font-size:0.6em;font-weight:700;color:var(--green);">✅ KOS 账号价值挖掘</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">
+              鸿大yoyo 转化率 0.30%<br>
+              是主号的 <b>15倍</b>，严重低配待加投
+            </div>
+          </div>
+          <div class="card-red" style="border-left-color:var(--olive);background:#F0FAF0;">
+            <div style="font-size:0.6em;font-weight:700;color:var(--olive);">📈 ROI 修正</div>
+            <div style="font-size:0.55em;color:var(--charcoal);margin-top:3px;">
+              系统显示 ROI = 0（回传未打通）<br>
+              真实毛利 ROI 估算 <b>~4.4</b>
+            </div>
+          </div>
+          <div style="background:var(--olive);border-radius:8px;padding:10px 14px;text-align:center;">
+            <div style="font-size:0.6em;color:white;font-weight:700;">💻 在线报告示例</div>
+            <div style="font-size:0.52em;color:rgba(255,255,255,0.8);margin-top:3px;">liiin96.github.io/laand-report/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-num">07 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S8 可复用性：其他行业组怎么用
+══════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:14px;">
+      <span class="tag tag-olive">跨组复用</span>
+      <h2 style="font-size:1.25em;font-weight:900;color:var(--charcoal);margin:6px 0 2px;">其他行业组如何快速复用？</h2>
+      <p style="font-size:0.58em;color:var(--muted);">三步搭建话术库，全流程 SOP 已沉淀</p>
+    </div>
+
+    <!-- 三步流程 -->
+    <div class="cols-3" style="margin-bottom:14px;">
+      <div style="background:var(--olive);border-radius:10px;padding:18px 16px;color:white;text-align:center;">
+        <div style="font-size:2em;margin-bottom:8px;">📝</div>
+        <div style="font-size:0.75em;font-weight:900;margin-bottom:8px;">Step 1</div>
+        <div style="font-size:0.62em;font-weight:700;margin-bottom:6px;">整理话术素材</div>
+        <div style="font-size:0.55em;opacity:0.9;line-height:1.6;">
+          从企微聊天记录提取<br>
+          按「场景-回复-注意事项」分类<br>
+          建议每章 3-8 条核心话术
+        </div>
+      </div>
+      <div style="background:var(--charcoal);border-radius:10px;padding:18px 16px;color:white;text-align:center;">
+        <div style="font-size:2em;margin-bottom:8px;">🗂</div>
+        <div style="font-size:0.75em;font-weight:900;margin-bottom:8px;">Step 2</div>
+        <div style="font-size:0.62em;font-weight:700;margin-bottom:6px;">结构化分章</div>
+        <div style="font-size:0.55em;opacity:0.9;line-height:1.6;">
+          每章对应一类场景<br>
+          章节命名要具体<br>
+          如"驳回：资质照片不清晰"
+        </div>
+      </div>
+      <div style="background:var(--accent);border-radius:10px;padding:18px 16px;color:var(--charcoal);text-align:center;">
+        <div style="font-size:2em;margin-bottom:8px;">🤖</div>
+        <div style="font-size:0.75em;font-weight:900;margin-bottom:8px;">Step 3</div>
+        <div style="font-size:0.62em;font-weight:700;margin-bottom:6px;">喂给 AI</div>
+        <div style="font-size:0.55em;line-height:1.6;">
+          上传到 RedDoc<br>
+          告诉 AI 文档链接<br>
+          AI 记住话术，随时召唤
+        </div>
+      </div>
+    </div>
+
+    <!-- Prompt 示例 -->
+    <div style="background:var(--charcoal);border-radius:10px;padding:14px 18px;margin-bottom:10px;">
+      <div style="font-size:0.58em;color:var(--accent);font-weight:700;margin-bottom:6px;">🔧 企微聊天记录快速提取 Prompt</div>
+      <div style="font-size:0.55em;color:rgba(255,255,255,0.85);line-height:1.8;font-family:monospace;">
+        以下是我从企微复制的聊天记录，请帮我：<br>
+        1. 识别出客户问的核心问题<br>
+        2. 提炼我回复中的关键要点<br>
+        3. 整理成「场景-回复-注意事项」格式<br>
+        [粘贴聊天记录]
+      </div>
+    </div>
+
+    <div style="padding:10px 14px;background:var(--cream);border-radius:8px;text-align:center;">
+      <span style="font-size:0.58em;color:var(--olive);font-weight:700;">✅ 搭建指南已整理 → </span>
+      <span style="font-size:0.58em;color:var(--muted);">docs.xiaohongshu.com · 话术库通用搭建指南（可复用）</span>
+    </div>
+
+    <div class="slide-num">08 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S9 Lesson & Learn
+══════════════════════════════════ -->
+<section data-background-color="#2C2C2C">
+  <div class="slide-inner">
+    <div class="top-stripe"></div>
+
+    <div style="margin-bottom:16px;">
+      <span class="tag tag-gold">Lesson & Learn</span>
+      <h2 style="font-size:1.3em;font-weight:900;color:white;margin:6px 0 2px;">三条经验，送给组内的你</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2.5em;flex-shrink:0;">🧹</div>
+        <div>
+          <div style="font-size:0.78em;font-weight:900;color:var(--accent);margin-bottom:6px;">01 · AI 最直接的价值：帮你省掉「脏活」</div>
+          <div style="font-size:0.62em;color:rgba(255,255,255,0.85);line-height:1.7;">
+            数据清洗、格式整理、翻聊天记录找话术、手工汇总报告——这些不产生直接价值的工作，全部可以交给 AI。
+            <b style="color:white;">销售的时间，真正花在客户沟通和策略判断上。</b>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2.5em;flex-shrink:0;">🎯</div>
+        <div>
+          <div style="font-size:0.78em;font-weight:900;color:var(--accent);margin-bottom:6px;">02 · 话术和数据，要从一手来源挖</div>
+          <div style="font-size:0.62em;color:rgba(255,255,255,0.85);line-height:1.7;">
+            话术要从实际业务场景中提炼才够准，数据要从原始报表中读才不失真。
+            <b style="color:white;">AI 做的是把这些内容结构化，在对的时间推到对的人面前。</b>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(200,184,154,0.15);border:1.5px solid var(--accent);border-radius:12px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2.5em;flex-shrink:0;">⚡</div>
+        <div>
+          <div style="font-size:0.78em;font-weight:900;color:var(--accent);margin-bottom:6px;">03 · 不只是「省了时间」，是工作方式的质变</div>
+          <div style="font-size:0.62em;color:rgba(255,255,255,0.85);line-height:1.7;">
+            从<b style="color:white;">「救火模式」→「主动诊断」</b>，服务时间轴整体前移。
+            客户掉量之前，你已经在帮他预警；复盘时，你给的不是感觉，是数据支撑的专业判断。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-num t-muted">09 / 10</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+  S10 结尾
+══════════════════════════════════ -->
+<section data-background-color="#5C7A5C">
+  <div class="slide-inner">
+    <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--accent),var(--oliveL),var(--accent));"></div>
+
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:85%;">
+
+      <div style="font-size:0.55em;letter-spacing:4px;color:rgba(255,255,255,0.6);margin-bottom:10px;">THANK YOU</div>
+      <div style="font-size:1.6em;font-weight:900;color:white;line-height:1.2;margin-bottom:12px;">
+        AI 不是终点<br>
+        <span style="color:var(--accent);">是让你飞得更高的翅膀</span>
+      </div>
+
+      <div style="height:2px;background:rgba(255,255,255,0.3);border-radius:1px;margin:16px auto;width:60%;"></div>
+
+      <!-- 三个数字 -->
+      <div class="cols-3" style="gap:10px;margin-bottom:20px;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:14px;">
+          <div style="font-size:1.5em;font-weight:900;color:var(--accent);">44+</div>
+          <div style="font-size:0.55em;color:rgba(255,255,255,0.75);">话术知识库章节</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:14px;">
+          <div style="font-size:1.5em;font-weight:900;color:var(--accent);">~30%</div>
+          <div style="font-size:0.55em;color:rgba(255,255,255,0.75);">新增业绩贡献</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:14px;">
+          <div style="font-size:1.5em;font-weight:900;color:var(--accent);">3段</div>
+          <div style="font-size:0.55em;color:rgba(255,255,255,0.75);">标准化可复用工作流</div>
+        </div>
+      </div>
+
+      <div style="font-size:0.62em;color:rgba(255,255,255,0.7);">橘玲（冯麟炎）｜ 行业五组（八部-二奢）｜ 2026.04</div>
+      <div style="font-size:0.55em;color:rgba(255,255,255,0.5);margin-top:4px;">欢迎联系获取工作流模板 & 话术库搭建指南</div>
+    </div>
+
+    <div class="slide-num t-white" style="opacity:0.5;">10 / 10</div>
+  </div>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  width: 1280, height: 720,
+  margin: 0,
+  transition: 'slide',
+  transitionSpeed: 'fast',
+  controls: true,
+  progress: true,
+  slideNumber: false,
+  overview: true,
+  keyboard: true,
+  touch: true,
+  loop: false,
+  autoSlide: 0,
+  plugins: [],
+});
+</script>
+</body>
+</html>
